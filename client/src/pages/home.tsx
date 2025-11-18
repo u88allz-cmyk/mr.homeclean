@@ -247,7 +247,8 @@ export default function Home() {
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6 break-keep" data-testid="text-credibility-title">
             전문적인 청소,<br />
-            이제는 선택이 아닌 필수입니다
+            이제는 선택이 아닌<br />
+            <span className="text-primary">필수</span>입니다
           </h2>
           <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed break-keep" data-testid="text-credibility-description">
             저희 미스터홈클린은 전국 어디든<br />
