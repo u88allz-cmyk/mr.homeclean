@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { Phone, MessageCircle, CheckCircle, Sparkles, Shield, Users, Clock, Award, TrendingUp, MapPin, HeadphonesIcon, Wrench, Menu, X, Home as HomeIcon, Briefcase, Baby, Building2, AlertTriangle, Star, ChevronLeft, ChevronRight } from "lucide-react";
+import { Phone, CheckCircle, Sparkles, Shield, Users, Clock, Award, TrendingUp, MapPin, HeadphonesIcon, Wrench, Menu, X, Home as HomeIcon, Briefcase, Baby, Building2, AlertTriangle, Star, ChevronLeft, ChevronRight } from "lucide-react";
+import { SiNaver } from "react-icons/si";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
@@ -223,18 +224,18 @@ export default function Home() {
               </div>
             </a>
             <a 
-              href="http://pf.kakao.com/_example" 
+              href="https://blog.naver.com/example" 
               target="_blank" 
               rel="noopener noreferrer"
               className="flex items-center gap-6 bg-white rounded-xl p-8 hover-elevate active-elevate-2"
-              data-testid="link-kakao-contact"
+              data-testid="link-blog-portfolio"
             >
-              <div className="flex-shrink-0 w-16 h-16 bg-[#FEE500] rounded-full flex items-center justify-center">
-                <MessageCircle className="w-8 h-8 text-[#381E1F]" />
+              <div className="flex-shrink-0 w-16 h-16 bg-[#03C75A] rounded-full flex items-center justify-center">
+                <SiNaver className="w-8 h-8 text-white" />
               </div>
               <div>
-                <p className="text-sm text-muted-foreground mb-1">카카오톡 상담</p>
-                <p className="text-2xl font-bold text-foreground">@미스터홈클린</p>
+                <p className="text-sm text-muted-foreground mb-1">블로그</p>
+                <p className="text-2xl font-bold text-foreground">포트폴리오 확인하기</p>
               </div>
             </a>
           </div>
@@ -296,7 +297,7 @@ export default function Home() {
               {
                 icon: HeadphonesIcon,
                 title: "24시간 상담 가능",
-                description: "언제든지 전화나 카카오톡으로 편하게 상담받으실 수 있습니다"
+                description: "언제든지 전화로 편하게 상담받으실 수 있으며 블로그에서 포트폴리오를 확인하실 수 있습니다"
               },
               {
                 icon: MapPin,
@@ -627,10 +628,10 @@ export default function Home() {
                 010-0000-0000
               </Button>
             </a>
-            <a href="http://pf.kakao.com/_example" target="_blank" rel="noopener noreferrer">
-              <Button size="lg" variant="outline" className="text-lg px-8 py-6 bg-[#FEE500] text-[#381E1F] hover:bg-[#FEE500]/90 border-[#FEE500]" data-testid="button-closing-kakao">
-                <MessageCircle className="w-5 h-5 mr-2" />
-                카카오톡 상담
+            <a href="https://blog.naver.com/example" target="_blank" rel="noopener noreferrer">
+              <Button size="lg" variant="outline" className="text-lg px-8 py-6 bg-[#03C75A] text-white hover:bg-[#03C75A]/90 border-[#03C75A]" data-testid="button-closing-blog">
+                <SiNaver className="w-5 h-5 mr-2" />
+                블로그 포트폴리오 확인하기
               </Button>
             </a>
           </div>
@@ -664,7 +665,7 @@ export default function Home() {
               <h4 className="font-bold text-foreground mb-4" data-testid="text-footer-support-heading">고객센터</h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li data-testid="text-footer-phone">전화: 010-0000-0000</li>
-                <li data-testid="text-footer-kakao">카카오톡: @미스터홈클린</li>
+                <li data-testid="text-footer-blog"><a href="https://blog.naver.com/example" target="_blank" rel="noopener noreferrer" className="hover:text-foreground">블로그: 포트폴리오 확인</a></li>
                 <li data-testid="text-footer-email">이메일: info@mrhomeclean.com</li>
                 <li data-testid="text-footer-hours">운영시간: 09:00 - 18:00</li>
               </ul>
