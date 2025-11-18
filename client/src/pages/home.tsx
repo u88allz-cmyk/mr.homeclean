@@ -6,7 +6,7 @@ import { Card } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import { ConsultationForm } from "@/components/consultation-form";
-import heroImage from "@assets/generated_images/Hero_cleaning_living_room_218e8096.png";
+import heroImage from "@assets/hero-team.webp";
 import moveInImage from "@assets/generated_images/Move-in_cleaning_service_71fd049b.png";
 import officeImage from "@assets/generated_images/Office_cleaning_service_18481c47.png";
 import specialImage from "@assets/generated_images/Special_cleaning_service_f03850be.png";
@@ -169,7 +169,7 @@ export default function Home() {
         <div className="absolute inset-0 z-0">
           <img 
             src={heroImage} 
-            alt="프리미엄 청소 서비스" 
+            alt="미스터홈클린 전문 청소 팀" 
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70"></div>
