@@ -453,7 +453,7 @@ export default function Home() {
       </section>
 
       {/* Section 7.5: Customer Reviews */}
-      <section id="reviews" className="py-24 bg-card">
+      <section id="reviews" className="py-16 bg-card">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <div className="flex items-center justify-center gap-2 mb-4">
@@ -541,11 +541,8 @@ export default function Home() {
           </div>
 
           <div className="text-center mt-12">
-            <p className="text-lg text-muted-foreground mb-2">
+            <p className="text-lg text-muted-foreground mb-6">
               더 많은 고객님들이 미스터홈클린의 전문성에 만족하고 계십니다
-            </p>
-            <p className="text-sm text-muted-foreground mb-6">
-              {currentReviewIndex + 1} / {reviews.length}
             </p>
             <Button size="lg" onClick={openConsultation} data-testid="button-reviews-consult">
               <Phone className="w-5 h-5 mr-2" />
