@@ -1,7 +1,9 @@
-import { useState } from "react";
-import { Phone, MessageCircle, CheckCircle, Sparkles, Shield, Users, Clock, Award, TrendingUp, MapPin, HeadphonesIcon, Wrench, Menu, X, Home as HomeIcon, Briefcase, Baby, Building2, AlertTriangle, Star } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Phone, MessageCircle, CheckCircle, Sparkles, Shield, Users, Clock, Award, TrendingUp, MapPin, HeadphonesIcon, Wrench, Menu, X, Home as HomeIcon, Briefcase, Baby, Building2, AlertTriangle, Star, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import { ConsultationForm } from "@/components/consultation-form";
 import heroImage from "@assets/generated_images/Hero_cleaning_living_room_218e8096.png";
 import moveInImage from "@assets/generated_images/Move-in_cleaning_service_71fd049b.png";
@@ -23,6 +25,21 @@ import review10 from "@assets/review-10.webp";
 export default function Home() {
   const [isConsultationOpen, setIsConsultationOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [currentReviewIndex, setCurrentReviewIndex] = useState(0);
+  const [selectedReviewImage, setSelectedReviewImage] = useState<string | null>(null);
+
+  const reviews = [
+    { img: review1, alt: "고객 리뷰 1" },
+    { img: review2, alt: "고객 리뷰 2" },
+    { img: review3, alt: "고객 리뷰 3" },
+    { img: review4, alt: "고객 리뷰 4" },
+    { img: review5, alt: "고객 리뷰 5" },
+    { img: review6, alt: "고객 리뷰 6" },
+    { img: review7, alt: "고객 리뷰 7" },
+    { img: review8, alt: "고객 리뷰 8" },
+    { img: review9, alt: "고객 리뷰 9" },
+    { img: review10, alt: "고객 리뷰 10" }
+  ];
 
   const scrollToContact = () => {
     document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
@@ -32,6 +49,34 @@ export default function Home() {
     setIsConsultationOpen(true);
     setIsMobileMenuOpen(false);
   };
+
+  const nextReview = () => {
+    setCurrentReviewIndex((prev) => (prev + 1) % reviews.length);
+  };
+
+  const prevReview = () => {
+    setCurrentReviewIndex((prev) => (prev - 1 + reviews.length) % reviews.length);
+  };
+
+  const openReviewModal = (img: string) => {
+    setSelectedReviewImage(img);
+  };
+
+  // Keyboard navigation for review slider
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (selectedReviewImage) return; // Don't navigate when modal is open
+      
+      if (e.key === 'ArrowLeft') {
+        setCurrentReviewIndex((prev) => (prev - 1 + reviews.length) % reviews.length);
+      } else if (e.key === 'ArrowRight') {
+        setCurrentReviewIndex((prev) => (prev + 1) % reviews.length);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [selectedReviewImage, reviews.length]);
 
   return (
     <div className="min-h-screen bg-background">
@@ -418,42 +463,89 @@ export default function Home() {
               </h2>
               <Star className="w-10 h-10 text-yellow-500 fill-yellow-500" />
             </div>
-            <p className="text-xl text-muted-foreground">
+            <p className="text-xl text-muted-foreground mb-4">
               미스터홈클린과 함께한 고객님들의 생생한 후기입니다
+            </p>
+            <p className="text-sm text-muted-foreground">
+              이미지를 클릭하시면 크게 보실 수 있습니다
             </p>
           </div>
           
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-            {[
-              { img: review1, alt: "고객 리뷰 1" },
-              { img: review2, alt: "고객 리뷰 2" },
-              { img: review3, alt: "고객 리뷰 3" },
-              { img: review4, alt: "고객 리뷰 4" },
-              { img: review5, alt: "고객 리뷰 5" },
-              { img: review6, alt: "고객 리뷰 6" },
-              { img: review7, alt: "고객 리뷰 7" },
-              { img: review8, alt: "고객 리뷰 8" },
-              { img: review9, alt: "고객 리뷰 9" },
-              { img: review10, alt: "고객 리뷰 10" }
-            ].map((review, index) => (
+          {/* Review Slider */}
+          <div className="relative max-w-4xl mx-auto">
+            <div className="flex items-center justify-center gap-4">
+              {/* Previous Button */}
+              <Button
+                size="icon"
+                variant="outline"
+                onClick={prevReview}
+                className="flex-shrink-0"
+                aria-label="이전 리뷰 보기"
+                data-testid="button-review-prev"
+              >
+                <ChevronLeft className="w-6 h-6" />
+              </Button>
+
+              {/* Current Review Image */}
               <div 
-                key={index} 
-                className="aspect-square overflow-hidden rounded-lg border-4 border-background shadow-lg hover-elevate"
-                data-testid={`img-review-${index + 1}`}
+                className="aspect-square w-full max-w-2xl overflow-hidden rounded-lg border-4 border-background shadow-xl cursor-pointer hover-elevate active-elevate-2"
+                onClick={() => openReviewModal(reviews[currentReviewIndex].img)}
+                role="button"
+                tabIndex={0}
+                aria-label={`${reviews[currentReviewIndex].alt} 크게 보기`}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    openReviewModal(reviews[currentReviewIndex].img);
+                  }
+                }}
+                data-testid={`img-review-current-${currentReviewIndex + 1}`}
               >
                 <img 
-                  src={review.img} 
-                  alt={review.alt}
-                  className="w-full h-full object-cover"
-                  loading="lazy"
+                  src={reviews[currentReviewIndex].img} 
+                  alt={reviews[currentReviewIndex].alt}
+                  className="w-full h-full object-contain bg-white"
                 />
               </div>
-            ))}
+
+              {/* Next Button */}
+              <Button
+                size="icon"
+                variant="outline"
+                onClick={nextReview}
+                className="flex-shrink-0"
+                aria-label="다음 리뷰 보기"
+                data-testid="button-review-next"
+              >
+                <ChevronRight className="w-6 h-6" />
+              </Button>
+            </div>
+
+            {/* Indicator Dots */}
+            <div className="flex items-center justify-center gap-2 mt-8" role="group" aria-label="리뷰 슬라이드 네비게이션">
+              {reviews.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentReviewIndex(index)}
+                  className={`w-2.5 h-2.5 rounded-full transition-all ${
+                    index === currentReviewIndex 
+                      ? 'bg-primary w-8' 
+                      : 'bg-muted-foreground/30 hover-elevate'
+                  }`}
+                  aria-label={`리뷰 ${index + 1}로 이동`}
+                  aria-current={index === currentReviewIndex ? 'true' : 'false'}
+                  data-testid={`button-review-dot-${index + 1}`}
+                />
+              ))}
+            </div>
           </div>
 
           <div className="text-center mt-12">
-            <p className="text-lg text-muted-foreground mb-6">
+            <p className="text-lg text-muted-foreground mb-2">
               더 많은 고객님들이 미스터홈클린의 전문성에 만족하고 계십니다
+            </p>
+            <p className="text-sm text-muted-foreground mb-6">
+              {currentReviewIndex + 1} / {reviews.length}
             </p>
             <Button size="lg" onClick={openConsultation} data-testid="button-reviews-consult">
               <Phone className="w-5 h-5 mr-2" />
@@ -462,6 +554,26 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Review Image Modal */}
+      <Dialog open={selectedReviewImage !== null} onOpenChange={(open) => !open && setSelectedReviewImage(null)}>
+        <DialogContent className="max-w-4xl p-2">
+          <VisuallyHidden>
+            <DialogTitle>고객 리뷰 이미지</DialogTitle>
+            <DialogDescription>고객 리뷰 이미지를 확대하여 보실 수 있습니다</DialogDescription>
+          </VisuallyHidden>
+          <div className="aspect-square w-full overflow-hidden rounded-lg">
+            {selectedReviewImage && (
+              <img 
+                src={selectedReviewImage} 
+                alt="고객 리뷰 확대"
+                className="w-full h-full object-contain bg-white"
+                data-testid="img-review-modal"
+              />
+            )}
+          </div>
+        </DialogContent>
+      </Dialog>
 
       {/* Section 8: Additional Costs */}
       <section id="pricing" className="py-24 bg-background">

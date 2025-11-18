@@ -9,11 +9,17 @@ The primary purpose is to showcase the company's cleaning services, build credib
 ## Recent Changes
 
 **November 18, 2024:**
-- Added Customer Reviews section with 10 optimized review images
-  - Images converted to WebP format for faster loading (85% quality, 800x800px max)
-  - Grid layout with frame-style presentation (aspect-square, border, shadow)
-  - Positioned between Work Scope and Additional Costs sections
-  - Added "고객리뷰" navigation link in both desktop and mobile menus
+- Transformed Customer Reviews section from grid to interactive slider
+  - Slider displays one large review image at a time (max-w-2xl) with `object-contain` to prevent text cutoff
+  - Previous/Next navigation buttons with keyboard arrow key support (Left/Right arrows)
+  - 10 clickable indicator dots for direct navigation to any review
+  - Click-to-enlarge modal shows full-size images in dialog (max-w-4xl)
+  - Accessibility features: aria-labels on all controls, keyboard navigation (Enter/Space to open modal)
+  - Images use white background to ensure full visibility of text content
+  - Review counter displays current position (e.g., "3 / 10")
+- Images converted to WebP format for faster loading (85% quality, 800x800px max)
+- Positioned between Work Scope and Additional Costs sections
+- Added "고객리뷰" navigation link in both desktop and mobile menus
 - Integrated custom 미스터홈클린 logo (blue character with yellow stars design)
   - Logo displayed in header (h-14) and footer (h-10)
 - All review images stored in `attached_assets/review-*.webp` format
