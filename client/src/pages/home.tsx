@@ -647,11 +647,12 @@ export default function Home() {
             <div>
               <div className="flex items-center gap-2 mb-4">
                 <img src={logoImage} alt="미스터홈클린 로고" className="h-10 w-auto" />
-                <span className="text-lg font-bold break-keep" data-testid="text-footer-brand">미스터홈클린</span>
+                <span className="text-lg font-bold text-primary break-keep" data-testid="text-footer-brand">미스터홈클린</span>
               </div>
               <p className="text-sm text-muted-foreground break-keep" data-testid="text-footer-tagline">
                 전문적인 청소 서비스로<br />
-                여러분의 공간을 새롭게
+                여러분의 공간을<br />
+                새롭게 만들어드립니다
               </p>
             </div>
             <div>
