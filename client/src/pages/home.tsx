@@ -453,7 +453,7 @@ export default function Home() {
       </section>
 
       {/* Section 7.5: Customer Reviews */}
-      <section id="reviews" className="py-16 bg-card">
+      <section id="reviews" className="py-12 bg-card">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <div className="flex items-center justify-center gap-2 mb-4">
