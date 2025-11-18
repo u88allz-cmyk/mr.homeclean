@@ -665,7 +665,6 @@ export default function Home() {
               <h4 className="font-bold text-foreground mb-4" data-testid="text-footer-support-heading">고객센터</h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li data-testid="text-footer-phone">전화: 010-0000-0000</li>
-                <li data-testid="text-footer-blog"><a href="https://blog.naver.com/mrclean-" target="_blank" rel="noopener noreferrer" className="hover:text-foreground">블로그: 포트폴리오 확인</a></li>
                 <li data-testid="text-footer-email">이메일: info@mrhomeclean.com</li>
                 <li data-testid="text-footer-hours">운영시간: 09:00 - 18:00</li>
               </ul>
