@@ -6,6 +6,33 @@ This is a professional cleaning service website for 미스터홈클린 (Mister H
 
 The primary purpose is to showcase the company's cleaning services, build credibility, and enable potential customers to submit consultation requests. The site emphasizes Korean typography (Noto Sans KR), professional presentation, and straightforward user interaction for service inquiries.
 
+## Recent Changes
+
+**November 18, 2024:**
+- Added Customer Reviews section with 10 optimized review images
+  - Images converted to WebP format for faster loading (85% quality, 800x800px max)
+  - Grid layout with frame-style presentation (aspect-square, border, shadow)
+  - Positioned between Work Scope and Additional Costs sections
+  - Added "고객리뷰" navigation link in both desktop and mobile menus
+- Integrated custom 미스터홈클린 logo (blue character with yellow stars design)
+  - Logo displayed in header (h-14) and footer (h-10)
+- All review images stored in `attached_assets/review-*.webp` format
+
+## Website Structure
+
+The site consists of 11 main sections:
+1. **Hero Section**: Full-screen banner with call-to-action
+2. **Contact CTA**: Phone and KakaoTalk contact buttons
+3. **Professional Credibility**: Trust-building statement
+4. **9 Strengths** (#strengths): Grid of company advantages
+5. **Target Customers** (#personas): 4 customer profile cards
+6. **Main Services** (#services): 4 service categories with images
+7. **Work Scope** (#work-scope): Detailed cleaning checklist
+8. **Customer Reviews** (#reviews): 10 before/after review images (WebP format)
+9. **Additional Costs** (#pricing): 8 potential extra charges
+10. **Closing CTA**: Final contact encouragement
+11. **Footer**: Company information and links
+
 ## User Preferences
 
 Preferred communication style: Simple, everyday language.

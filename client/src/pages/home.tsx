@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Phone, MessageCircle, CheckCircle, Sparkles, Shield, Users, Clock, Award, TrendingUp, MapPin, HeadphonesIcon, Wrench, Menu, X, Home as HomeIcon, Briefcase, Baby, Building2, AlertTriangle } from "lucide-react";
+import { Phone, MessageCircle, CheckCircle, Sparkles, Shield, Users, Clock, Award, TrendingUp, MapPin, HeadphonesIcon, Wrench, Menu, X, Home as HomeIcon, Briefcase, Baby, Building2, AlertTriangle, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { ConsultationForm } from "@/components/consultation-form";
@@ -9,6 +9,16 @@ import officeImage from "@assets/generated_images/Office_cleaning_service_18481c
 import specialImage from "@assets/generated_images/Special_cleaning_service_f03850be.png";
 import windowImage from "@assets/generated_images/Window_cleaning_service_aebf7d2d.png";
 import logoImage from "@assets/미스터홈클린 로고-Photoroom_1763451941494.png";
+import review1 from "@assets/review-1.webp";
+import review2 from "@assets/review-2.webp";
+import review3 from "@assets/review-3.webp";
+import review4 from "@assets/review-4.webp";
+import review5 from "@assets/review-5.webp";
+import review6 from "@assets/review-6.webp";
+import review7 from "@assets/review-7.webp";
+import review8 from "@assets/review-8.webp";
+import review9 from "@assets/review-9.webp";
+import review10 from "@assets/review-10.webp";
 
 export default function Home() {
   const [isConsultationOpen, setIsConsultationOpen] = useState(false);
@@ -37,6 +47,7 @@ export default function Home() {
               <a href="#services" className="text-sm font-medium hover-elevate active-elevate-2 px-3 py-2 rounded-md" data-testid="link-nav-home">서비스</a>
               <a href="#strengths" className="text-sm font-medium hover-elevate active-elevate-2 px-3 py-2 rounded-md" data-testid="link-nav-office">왜 선택할까요</a>
               <a href="#work-scope" className="text-sm font-medium hover-elevate active-elevate-2 px-3 py-2 rounded-md" data-testid="link-nav-special">작업범위</a>
+              <a href="#reviews" className="text-sm font-medium hover-elevate active-elevate-2 px-3 py-2 rounded-md" data-testid="link-nav-reviews">고객리뷰</a>
               <a href="#pricing" className="text-sm font-medium hover-elevate active-elevate-2 px-3 py-2 rounded-md" data-testid="link-nav-window">비용안내</a>
               <Button size="sm" onClick={openConsultation} data-testid="button-nav-contact">
                 상담문의
@@ -79,6 +90,14 @@ export default function Home() {
                 data-testid="link-mobile-special"
               >
                 작업범위
+              </a>
+              <a 
+                href="#reviews" 
+                className="block px-3 py-2 rounded-md hover-elevate active-elevate-2 font-medium"
+                onClick={() => setIsMobileMenuOpen(false)}
+                data-testid="link-mobile-reviews"
+              >
+                고객리뷰
               </a>
               <a 
                 href="#pricing" 
@@ -388,8 +407,64 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Section 7.5: Customer Reviews */}
+      <section id="reviews" className="py-24 bg-card">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <div className="flex items-center justify-center gap-2 mb-4">
+              <Star className="w-10 h-10 text-yellow-500 fill-yellow-500" />
+              <h2 className="text-4xl font-bold text-foreground" data-testid="text-reviews-title">
+                고객 리뷰
+              </h2>
+              <Star className="w-10 h-10 text-yellow-500 fill-yellow-500" />
+            </div>
+            <p className="text-xl text-muted-foreground">
+              미스터홈클린과 함께한 고객님들의 생생한 후기입니다
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+            {[
+              { img: review1, alt: "고객 리뷰 1" },
+              { img: review2, alt: "고객 리뷰 2" },
+              { img: review3, alt: "고객 리뷰 3" },
+              { img: review4, alt: "고객 리뷰 4" },
+              { img: review5, alt: "고객 리뷰 5" },
+              { img: review6, alt: "고객 리뷰 6" },
+              { img: review7, alt: "고객 리뷰 7" },
+              { img: review8, alt: "고객 리뷰 8" },
+              { img: review9, alt: "고객 리뷰 9" },
+              { img: review10, alt: "고객 리뷰 10" }
+            ].map((review, index) => (
+              <div 
+                key={index} 
+                className="aspect-square overflow-hidden rounded-lg border-4 border-background shadow-lg hover-elevate"
+                data-testid={`img-review-${index + 1}`}
+              >
+                <img 
+                  src={review.img} 
+                  alt={review.alt}
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <p className="text-lg text-muted-foreground mb-6">
+              더 많은 고객님들이 미스터홈클린의 전문성에 만족하고 계십니다
+            </p>
+            <Button size="lg" onClick={openConsultation} data-testid="button-reviews-consult">
+              <Phone className="w-5 h-5 mr-2" />
+              지금 바로 상담받기
+            </Button>
+          </div>
+        </div>
+      </section>
+
       {/* Section 8: Additional Costs */}
-      <section id="pricing" className="py-24 bg-card">
+      <section id="pricing" className="py-24 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-center gap-2 mb-4">
             <AlertTriangle className="w-8 h-8 text-destructive" />
