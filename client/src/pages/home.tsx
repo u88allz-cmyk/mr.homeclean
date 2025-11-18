@@ -223,8 +223,7 @@ export default function Home() {
                 <Phone className="w-8 h-8 text-white" />
               </div>
               <div>
-                <p className="text-sm text-muted-foreground mb-1 break-keep">전화 상담</p>
-                <p className="text-2xl font-bold text-foreground break-keep">010-0000-0000</p>
+                <p className="text-2xl font-bold text-foreground break-keep">전화 상담</p>
               </div>
             </a>
             <a 
