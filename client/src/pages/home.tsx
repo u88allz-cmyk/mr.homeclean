@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Phone, CheckCircle, Sparkles, Shield, Users, Clock, Award, TrendingUp, MapPin, HeadphonesIcon, Wrench, Menu, X, Home as HomeIcon, Briefcase, Baby, Building2, AlertTriangle, Star, ChevronLeft, ChevronRight } from "lucide-react";
+import { Phone, CheckCircle, Sparkles, Shield, Users, Clock, Award, TrendingUp, MapPin, HeadphonesIcon, Wrench, Menu, X, Home as HomeIcon, Briefcase, Baby, Building2, AlertTriangle, Star, ChevronLeft, ChevronRight, FileText, ArrowRight } from "lucide-react";
 import { SiNaver } from "react-icons/si";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -180,36 +180,40 @@ export default function Home() {
             이제는 선택이 아닌<br />
             <span className="text-primary">필수</span>입니다
           </h1>
-          <p className="text-xl sm:text-2xl text-white/90 mb-12 font-medium break-keep">
+          <p className="text-xl sm:text-2xl text-white/90 font-medium break-keep">
             미스터홈클린이 책임지는 프리미엄 청소 서비스
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              size="lg" 
-              className="text-lg px-8 py-6 bg-primary hover:bg-primary/90" 
-              onClick={openConsultation}
-              data-testid="button-hero-consult"
-            >
-              <Phone className="w-5 h-5 mr-2" />
-              무료 상담받기
-            </Button>
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="text-lg px-8 py-6 bg-background/10 backdrop-blur-md border-white/30 text-white hover:bg-background/20"
-              onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
-              data-testid="button-hero-services"
-            >
-              서비스 둘러보기
-            </Button>
-          </div>
         </div>
       </section>
 
       {/* Section 2: Contact CTA */}
       <section id="contact" className="py-16 bg-primary">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-6">
+            <button 
+              onClick={openConsultation}
+              className="flex items-center gap-6 bg-white rounded-xl p-8 hover-elevate active-elevate-2 text-left"
+              data-testid="button-contact-inquiry"
+            >
+              <div className="flex-shrink-0 w-16 h-16 bg-primary rounded-full flex items-center justify-center">
+                <FileText className="w-8 h-8 text-white" />
+              </div>
+              <div>
+                <p className="text-2xl font-bold text-foreground break-keep">문의 남기기</p>
+              </div>
+            </button>
+            <button 
+              onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
+              className="flex items-center gap-6 bg-white rounded-xl p-8 hover-elevate active-elevate-2 text-left"
+              data-testid="button-contact-services"
+            >
+              <div className="flex-shrink-0 w-16 h-16 bg-primary rounded-full flex items-center justify-center">
+                <ArrowRight className="w-8 h-8 text-white" />
+              </div>
+              <div>
+                <p className="text-2xl font-bold text-foreground break-keep">서비스 둘러보기</p>
+              </div>
+            </button>
             <a 
               href="tel:010-0000-0000" 
               className="flex items-center gap-6 bg-white rounded-xl p-8 hover-elevate active-elevate-2"
