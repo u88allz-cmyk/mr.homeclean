@@ -1,6 +1,8 @@
-import { Phone, MessageCircle, CheckCircle, Sparkles, Shield, Users, Clock, Award, TrendingUp, MapPin, HeadphonesIcon, Wrench } from "lucide-react";
+import { useState } from "react";
+import { Phone, MessageCircle, CheckCircle, Sparkles, Shield, Users, Clock, Award, TrendingUp, MapPin, HeadphonesIcon, Wrench, Menu, X, Home as HomeIcon, Briefcase, Baby, Building2, AlertTriangle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { ConsultationForm } from "@/components/consultation-form";
 import heroImage from "@assets/generated_images/Hero_cleaning_living_room_218e8096.png";
 import moveInImage from "@assets/generated_images/Move-in_cleaning_service_71fd049b.png";
 import officeImage from "@assets/generated_images/Office_cleaning_service_18481c47.png";
@@ -8,8 +10,16 @@ import specialImage from "@assets/generated_images/Special_cleaning_service_f038
 import windowImage from "@assets/generated_images/Window_cleaning_service_aebf7d2d.png";
 
 export default function Home() {
+  const [isConsultationOpen, setIsConsultationOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   const scrollToContact = () => {
     document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const openConsultation = () => {
+    setIsConsultationOpen(true);
+    setIsMobileMenuOpen(false);
   };
 
   return (
@@ -23,17 +33,70 @@ export default function Home() {
               <span className="text-xl font-bold text-foreground">미스터홈클린</span>
             </div>
             <div className="hidden md:flex items-center gap-8">
-              <a href="#services" className="text-sm font-medium hover-elevate active-elevate-2 px-3 py-2 rounded-md">홈클리닝</a>
-              <a href="#services" className="text-sm font-medium hover-elevate active-elevate-2 px-3 py-2 rounded-md">오피스클리닝</a>
-              <a href="#services" className="text-sm font-medium hover-elevate active-elevate-2 px-3 py-2 rounded-md">특수클리닝</a>
-              <a href="#services" className="text-sm font-medium hover-elevate active-elevate-2 px-3 py-2 rounded-md">외창클리닝</a>
-              <Button size="sm" onClick={scrollToContact} data-testid="button-nav-contact">
+              <a href="#services" className="text-sm font-medium hover-elevate active-elevate-2 px-3 py-2 rounded-md" data-testid="link-nav-home">서비스</a>
+              <a href="#strengths" className="text-sm font-medium hover-elevate active-elevate-2 px-3 py-2 rounded-md" data-testid="link-nav-office">왜 선택할까요</a>
+              <a href="#work-scope" className="text-sm font-medium hover-elevate active-elevate-2 px-3 py-2 rounded-md" data-testid="link-nav-special">작업범위</a>
+              <a href="#pricing" className="text-sm font-medium hover-elevate active-elevate-2 px-3 py-2 rounded-md" data-testid="link-nav-window">비용안내</a>
+              <Button size="sm" onClick={openConsultation} data-testid="button-nav-contact">
+                상담문의
+              </Button>
+            </div>
+            <button 
+              className="md:hidden p-2 hover-elevate active-elevate-2 rounded-md"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              data-testid="button-mobile-menu"
+            >
+              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
+        </div>
+        
+        {/* Mobile Menu */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden bg-background border-t">
+            <div className="px-4 py-4 space-y-3">
+              <a 
+                href="#services" 
+                className="block px-3 py-2 rounded-md hover-elevate active-elevate-2 font-medium"
+                onClick={() => setIsMobileMenuOpen(false)}
+                data-testid="link-mobile-home"
+              >
+                서비스
+              </a>
+              <a 
+                href="#strengths" 
+                className="block px-3 py-2 rounded-md hover-elevate active-elevate-2 font-medium"
+                onClick={() => setIsMobileMenuOpen(false)}
+                data-testid="link-mobile-office"
+              >
+                왜 선택할까요
+              </a>
+              <a 
+                href="#work-scope" 
+                className="block px-3 py-2 rounded-md hover-elevate active-elevate-2 font-medium"
+                onClick={() => setIsMobileMenuOpen(false)}
+                data-testid="link-mobile-special"
+              >
+                작업범위
+              </a>
+              <a 
+                href="#pricing" 
+                className="block px-3 py-2 rounded-md hover-elevate active-elevate-2 font-medium"
+                onClick={() => setIsMobileMenuOpen(false)}
+                data-testid="link-mobile-window"
+              >
+                비용안내
+              </a>
+              <Button className="w-full" onClick={openConsultation} data-testid="button-mobile-contact">
                 상담문의
               </Button>
             </div>
           </div>
-        </div>
+        )}
       </nav>
+
+      {/* Consultation Form Dialog */}
+      <ConsultationForm open={isConsultationOpen} onOpenChange={setIsConsultationOpen} />
 
       {/* Section 1: Hero */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
@@ -58,7 +121,7 @@ export default function Home() {
             <Button 
               size="lg" 
               className="text-lg px-8 py-6 bg-primary hover:bg-primary/90" 
-              onClick={scrollToContact}
+              onClick={openConsultation}
               data-testid="button-hero-consult"
             >
               <Phone className="w-5 h-5 mr-2" />
@@ -120,7 +183,7 @@ export default function Home() {
             전문적인 청소,<br />
             이제는 선택이 아닌 필수입니다
           </h2>
-          <p className="text-xl text-muted-foreground leading-relaxed">
+          <p className="text-xl text-muted-foreground leading-relaxed" data-testid="text-credibility-description">
             저희 미스터홈클린은 전국 어디든 100% 직영으로 운영되는<br />
             프리미엄 청소 전문 업체입니다
           </p>
@@ -128,7 +191,7 @@ export default function Home() {
       </section>
 
       {/* Section 4: 9 Strengths */}
-      <section className="py-24 bg-card">
+      <section id="strengths" className="py-24 bg-card">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold text-center text-foreground mb-16" data-testid="text-strengths-title">
             왜 미스터홈클린 일까요?
@@ -182,9 +245,9 @@ export default function Home() {
               }
             ].map((strength, index) => (
               <Card key={index} className="p-8 hover-elevate" data-testid={`card-strength-${index}`}>
-                <strength.icon className="w-12 h-12 text-primary mb-4" />
-                <h3 className="text-xl font-bold text-foreground mb-3">{strength.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">{strength.description}</p>
+                <strength.icon className="w-12 h-12 text-primary mb-4" data-testid={`icon-strength-${index}`} />
+                <h3 className="text-xl font-bold text-foreground mb-3" data-testid={`text-strength-title-${index}`}>{strength.title}</h3>
+                <p className="text-muted-foreground leading-relaxed" data-testid={`text-strength-desc-${index}`}>{strength.description}</p>
               </Card>
             ))}
           </div>
@@ -192,7 +255,7 @@ export default function Home() {
       </section>
 
       {/* Section 5: Target Customers */}
-      <section className="py-24 bg-background">
+      <section id="personas" className="py-24 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold text-center text-foreground mb-16" data-testid="text-target-title">
             미스터홈클린,<br />
@@ -201,30 +264,30 @@ export default function Home() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               {
-                icon: "🏠",
+                icon: HomeIcon,
                 title: "이사/입주 예정이신 분",
                 description: "깨끗한 공간에서 새로운 시작을 준비하세요"
               },
               {
-                icon: "💼",
+                icon: Briefcase,
                 title: "바쁜 직장인",
                 description: "시간이 부족한 분들을 위한 전문 청소 서비스"
               },
               {
-                icon: "👶",
+                icon: Baby,
                 title: "영유아가 있는 가정",
                 description: "안전한 친환경 세제로 우리 아이를 지켜요"
               },
               {
-                icon: "🏢",
+                icon: Building2,
                 title: "사무실/상가 운영자",
                 description: "쾌적한 근무환경으로 업무 효율을 높이세요"
               }
             ].map((target, index) => (
               <Card key={index} className="p-8 text-center hover-elevate" data-testid={`card-target-${index}`}>
-                <div className="text-5xl mb-4">{target.icon}</div>
-                <h3 className="text-xl font-bold text-foreground mb-3">{target.title}</h3>
-                <p className="text-muted-foreground">{target.description}</p>
+                <target.icon className="w-16 h-16 text-primary mx-auto mb-4" data-testid={`icon-target-${index}`} />
+                <h3 className="text-xl font-bold text-foreground mb-3" data-testid={`text-target-title-${index}`}>{target.title}</h3>
+                <p className="text-muted-foreground" data-testid={`text-target-desc-${index}`}>{target.description}</p>
               </Card>
             ))}
           </div>
@@ -266,12 +329,13 @@ export default function Home() {
                     src={service.image} 
                     alt={service.title} 
                     className="w-full h-full object-cover"
+                    data-testid={`img-service-${index}`}
                   />
                 </div>
                 <div className="p-8">
-                  <h3 className="text-2xl font-bold text-foreground mb-3">{service.title}</h3>
-                  <p className="text-muted-foreground mb-6">{service.description}</p>
-                  <Button variant="outline" className="w-full" onClick={scrollToContact} data-testid={`button-service-${index}`}>
+                  <h3 className="text-2xl font-bold text-foreground mb-3" data-testid={`text-service-title-${index}`}>{service.title}</h3>
+                  <p className="text-muted-foreground mb-6" data-testid={`text-service-desc-${index}`}>{service.description}</p>
+                  <Button variant="outline" className="w-full" onClick={openConsultation} data-testid={`button-service-${index}`}>
                     상담 신청하기
                   </Button>
                 </div>
@@ -282,7 +346,7 @@ export default function Home() {
       </section>
 
       {/* Section 7: Work Scope */}
-      <section className="py-24 bg-background">
+      <section id="work-scope" className="py-24 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold text-center text-foreground mb-16" data-testid="text-scope-title">
             미스터홈클린,<br />
@@ -308,10 +372,10 @@ export default function Home() {
               }
             ].map((scope, index) => (
               <Card key={index} className="p-6" data-testid={`card-scope-${index}`}>
-                <h3 className="text-xl font-bold text-foreground mb-6 pb-3 border-b">{scope.area}</h3>
+                <h3 className="text-xl font-bold text-foreground mb-6 pb-3 border-b" data-testid={`text-scope-area-${index}`}>{scope.area}</h3>
                 <ul className="space-y-3">
                   {scope.items.map((item, idx) => (
-                    <li key={idx} className="flex items-start gap-2">
+                    <li key={idx} className="flex items-start gap-2" data-testid={`item-scope-${index}-${idx}`}>
                       <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
                       <span className="text-sm text-foreground">{item}</span>
                     </li>
@@ -324,12 +388,15 @@ export default function Home() {
       </section>
 
       {/* Section 8: Additional Costs */}
-      <section className="py-24 bg-card">
+      <section id="pricing" className="py-24 bg-card">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-center text-foreground mb-4" data-testid="text-additional-cost-title">
-            이런 경우엔 별도 비용이 생겨요❗
-          </h2>
-          <p className="text-center text-muted-foreground mb-16">
+          <div className="flex items-center justify-center gap-2 mb-4">
+            <AlertTriangle className="w-8 h-8 text-destructive" />
+            <h2 className="text-4xl font-bold text-center text-foreground" data-testid="text-additional-cost-title">
+              이런 경우엔 별도 비용이 생겨요
+            </h2>
+          </div>
+          <p className="text-center text-muted-foreground mb-16" data-testid="text-additional-cost-desc">
             아래 항목에 해당되는 경우 추가 비용이 발생할 수 있습니다
           </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -359,13 +426,13 @@ export default function Home() {
       </section>
 
       {/* Section 9: Closing CTA */}
-      <section className="py-24 bg-primary">
+      <section id="closing-cta" className="py-24 bg-primary">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6" data-testid="text-closing-title">
             망설임은 먼지만 쌓일 뿐!<br />
             청소는 미스터홈클린이 책임질게요
           </h2>
-          <p className="text-xl text-white/90 mb-12">
+          <p className="text-xl text-white/90 mb-12" data-testid="text-closing-desc">
             지금 바로 상담 신청하시고 깨끗한 공간을 만나보세요
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -386,49 +453,49 @@ export default function Home() {
       </section>
 
       {/* Section 10: Footer */}
-      <footer className="bg-card py-16 border-t">
+      <footer className="bg-card py-16 border-t" data-testid="footer">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
             <div>
               <div className="flex items-center gap-2 mb-4">
                 <Sparkles className="w-6 h-6 text-primary" />
-                <span className="text-lg font-bold">미스터홈클린</span>
+                <span className="text-lg font-bold" data-testid="text-footer-brand">미스터홈클린</span>
               </div>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-sm text-muted-foreground" data-testid="text-footer-tagline">
                 전문적인 청소 서비스로<br />
                 여러분의 공간을 새롭게
               </p>
             </div>
             <div>
-              <h4 className="font-bold text-foreground mb-4">서비스</h4>
+              <h4 className="font-bold text-foreground mb-4" data-testid="text-footer-services-heading">서비스</h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><a href="#services" className="hover:text-foreground">입주/이사청소</a></li>
-                <li><a href="#services" className="hover:text-foreground">사무실청소</a></li>
-                <li><a href="#services" className="hover:text-foreground">특수청소</a></li>
-                <li><a href="#services" className="hover:text-foreground">외창청소</a></li>
+                <li><a href="#services" className="hover:text-foreground" data-testid="link-footer-movein">입주/이사청소</a></li>
+                <li><a href="#services" className="hover:text-foreground" data-testid="link-footer-office">사무실청소</a></li>
+                <li><a href="#services" className="hover:text-foreground" data-testid="link-footer-special">특수청소</a></li>
+                <li><a href="#services" className="hover:text-foreground" data-testid="link-footer-window">외창청소</a></li>
               </ul>
             </div>
             <div>
-              <h4 className="font-bold text-foreground mb-4">고객센터</h4>
+              <h4 className="font-bold text-foreground mb-4" data-testid="text-footer-support-heading">고객센터</h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li>전화: 010-0000-0000</li>
-                <li>카카오톡: @미스터홈클린</li>
-                <li>이메일: info@mrhomeclean.com</li>
-                <li>운영시간: 09:00 - 18:00</li>
+                <li data-testid="text-footer-phone">전화: 010-0000-0000</li>
+                <li data-testid="text-footer-kakao">카카오톡: @미스터홈클린</li>
+                <li data-testid="text-footer-email">이메일: info@mrhomeclean.com</li>
+                <li data-testid="text-footer-hours">운영시간: 09:00 - 18:00</li>
               </ul>
             </div>
             <div>
-              <h4 className="font-bold text-foreground mb-4">회사정보</h4>
+              <h4 className="font-bold text-foreground mb-4" data-testid="text-footer-company-heading">회사정보</h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li>상호명: 미스터홈클린</li>
-                <li>대표자: 홍길동</li>
-                <li>사업자번호: 000-00-00000</li>
-                <li>주소: 서울특별시 강남구</li>
+                <li data-testid="text-footer-company-name">상호명: 미스터홈클린</li>
+                <li data-testid="text-footer-representative">대표자: 홍길동</li>
+                <li data-testid="text-footer-business-number">사업자번호: 000-00-00000</li>
+                <li data-testid="text-footer-address">주소: 서울특별시 강남구</li>
               </ul>
             </div>
           </div>
           <div className="pt-8 border-t text-center text-sm text-muted-foreground">
-            <p>© 2024 미스터홈클린. All rights reserved.</p>
+            <p data-testid="text-footer-copyright">© 2024 미스터홈클린. All rights reserved.</p>
           </div>
         </div>
       </footer>
