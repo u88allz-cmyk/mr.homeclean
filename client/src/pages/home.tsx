@@ -495,7 +495,7 @@ export default function Home() {
             </div>
           </div>
           <div className="pt-8 border-t text-center text-sm text-muted-foreground">
-            <p data-testid="text-footer-copyright">© 2024 미스터홈클린. All rights reserved.</p>
+            <p data-testid="text-footer-copyright">Copyright 2024 미스터홈클린. All rights reserved.</p>
           </div>
         </div>
       </footer>
