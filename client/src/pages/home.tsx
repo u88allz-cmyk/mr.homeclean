@@ -175,12 +175,12 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70"></div>
         </div>
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight" data-testid="text-hero-title">
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight break-keep" data-testid="text-hero-title">
             전문적인 청소,<br />
             이제는 선택이 아닌<br />
             <span className="text-primary">필수</span>입니다
           </h1>
-          <p className="text-xl sm:text-2xl text-white/90 mb-12 font-medium">
+          <p className="text-xl sm:text-2xl text-white/90 mb-12 font-medium break-keep">
             미스터홈클린이 책임지는 프리미엄 청소 서비스
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -219,8 +219,8 @@ export default function Home() {
                 <Phone className="w-8 h-8 text-white" />
               </div>
               <div>
-                <p className="text-sm text-muted-foreground mb-1">전화 상담</p>
-                <p className="text-2xl font-bold text-foreground">010-0000-0000</p>
+                <p className="text-sm text-muted-foreground mb-1 break-keep">전화 상담</p>
+                <p className="text-2xl font-bold text-foreground break-keep">010-0000-0000</p>
               </div>
             </a>
             <a 
@@ -234,8 +234,8 @@ export default function Home() {
                 <SiNaver className="w-8 h-8 text-white" />
               </div>
               <div>
-                <p className="text-sm text-muted-foreground mb-1">블로그</p>
-                <p className="text-2xl font-bold text-foreground">포트폴리오 확인하기</p>
+                <p className="text-sm text-muted-foreground mb-1 break-keep">블로그</p>
+                <p className="text-2xl font-bold text-foreground break-keep">포트폴리오 확인하기</p>
               </div>
             </a>
           </div>
@@ -245,15 +245,13 @@ export default function Home() {
       {/* Section 3: Professional Credibility */}
       <section className="py-24 bg-background">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6" data-testid="text-credibility-title">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6 break-keep" data-testid="text-credibility-title">
             전문적인 청소,<br />
-            이제는 선택이 아닌<br className="sm:hidden" />
-            필수입니다
+            이제는 선택이 아닌 필수입니다
           </h2>
-          <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed" data-testid="text-credibility-description">
-            저희 미스터홈클린은<br className="sm:hidden" />
-            전국 어디든 100% 직영으로<br className="sm:hidden" />
-            운영되는<br />
+          <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed break-keep" data-testid="text-credibility-description">
+            저희 미스터홈클린은 전국 어디든<br />
+            100% 직영으로 운영되는<br />
             프리미엄 청소 전문 업체입니다
           </p>
         </div>
@@ -262,7 +260,7 @@ export default function Home() {
       {/* Section 4: 9 Strengths */}
       <section id="strengths" className="py-24 bg-card">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-center text-foreground mb-16" data-testid="text-strengths-title">
+          <h2 className="text-4xl font-bold text-center text-foreground mb-16 break-keep" data-testid="text-strengths-title">
             왜 미스터홈클린 일까요?
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -315,8 +313,8 @@ export default function Home() {
             ].map((strength, index) => (
               <Card key={index} className="p-8 hover-elevate" data-testid={`card-strength-${index}`}>
                 <strength.icon className="w-12 h-12 text-primary mb-4" data-testid={`icon-strength-${index}`} />
-                <h3 className="text-xl font-bold text-foreground mb-3" data-testid={`text-strength-title-${index}`}>{strength.title}</h3>
-                <p className="text-muted-foreground leading-relaxed" data-testid={`text-strength-desc-${index}`}>{strength.description}</p>
+                <h3 className="text-xl font-bold text-foreground mb-3 break-keep" data-testid={`text-strength-title-${index}`}>{strength.title}</h3>
+                <p className="text-muted-foreground leading-relaxed break-keep" data-testid={`text-strength-desc-${index}`}>{strength.description}</p>
               </Card>
             ))}
           </div>
@@ -326,7 +324,7 @@ export default function Home() {
       {/* Section 5: Target Customers */}
       <section id="personas" className="py-24 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-center text-foreground mb-16" data-testid="text-target-title">
+          <h2 className="text-4xl font-bold text-center text-foreground mb-16 break-keep" data-testid="text-target-title">
             미스터홈클린,<br />
             이런 분들에게 딱이에요
           </h2>
@@ -355,8 +353,8 @@ export default function Home() {
             ].map((target, index) => (
               <Card key={index} className="p-8 text-center hover-elevate" data-testid={`card-target-${index}`}>
                 <target.icon className="w-16 h-16 text-primary mx-auto mb-4" data-testid={`icon-target-${index}`} />
-                <h3 className="text-xl font-bold text-foreground mb-3" data-testid={`text-target-title-${index}`}>{target.title}</h3>
-                <p className="text-muted-foreground" data-testid={`text-target-desc-${index}`}>{target.description}</p>
+                <h3 className="text-xl font-bold text-foreground mb-3 break-keep" data-testid={`text-target-title-${index}`}>{target.title}</h3>
+                <p className="text-muted-foreground break-keep" data-testid={`text-target-desc-${index}`}>{target.description}</p>
               </Card>
             ))}
           </div>
@@ -366,7 +364,7 @@ export default function Home() {
       {/* Section 6: Main Services */}
       <section id="services" className="py-24 bg-card">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-center text-foreground mb-16" data-testid="text-services-title">
+          <h2 className="text-4xl font-bold text-center text-foreground mb-16 break-keep" data-testid="text-services-title">
             미스터홈클린의 대표 서비스
           </h2>
           <div className="grid md:grid-cols-2 gap-8">
@@ -402,9 +400,9 @@ export default function Home() {
                   />
                 </div>
                 <div className="p-8">
-                  <h3 className="text-2xl font-bold text-foreground mb-3" data-testid={`text-service-title-${index}`}>{service.title}</h3>
-                  <p className="text-muted-foreground mb-6" data-testid={`text-service-desc-${index}`}>{service.description}</p>
-                  <Button variant="outline" className="w-full" onClick={openConsultation} data-testid={`button-service-${index}`}>
+                  <h3 className="text-2xl font-bold text-foreground mb-3 break-keep" data-testid={`text-service-title-${index}`}>{service.title}</h3>
+                  <p className="text-muted-foreground mb-6 break-keep" data-testid={`text-service-desc-${index}`}>{service.description}</p>
+                  <Button variant="outline" className="w-full break-keep" onClick={openConsultation} data-testid={`button-service-${index}`}>
                     상담 신청하기
                   </Button>
                 </div>
@@ -417,7 +415,7 @@ export default function Home() {
       {/* Section 7: Work Scope */}
       <section id="work-scope" className="py-24 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-center text-foreground mb-16" data-testid="text-scope-title">
+          <h2 className="text-4xl font-bold text-center text-foreground mb-16 break-keep" data-testid="text-scope-title">
             미스터홈클린,<br />
             작업범위는?
           </h2>
@@ -441,12 +439,12 @@ export default function Home() {
               }
             ].map((scope, index) => (
               <Card key={index} className="p-6" data-testid={`card-scope-${index}`}>
-                <h3 className="text-xl font-bold text-foreground mb-6 pb-3 border-b" data-testid={`text-scope-area-${index}`}>{scope.area}</h3>
+                <h3 className="text-xl font-bold text-foreground mb-6 pb-3 border-b break-keep" data-testid={`text-scope-area-${index}`}>{scope.area}</h3>
                 <ul className="space-y-3">
                   {scope.items.map((item, idx) => (
                     <li key={idx} className="flex items-start gap-2" data-testid={`item-scope-${index}-${idx}`}>
                       <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                      <span className="text-sm text-foreground">{item}</span>
+                      <span className="text-sm text-foreground break-keep">{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -462,15 +460,15 @@ export default function Home() {
           <div className="text-center mb-16">
             <div className="flex items-center justify-center gap-2 mb-4">
               <Star className="w-10 h-10 text-yellow-500 fill-yellow-500" />
-              <h2 className="text-4xl font-bold text-foreground" data-testid="text-reviews-title">
+              <h2 className="text-4xl font-bold text-foreground break-keep" data-testid="text-reviews-title">
                 고객 리뷰
               </h2>
               <Star className="w-10 h-10 text-yellow-500 fill-yellow-500" />
             </div>
-            <p className="text-xl text-muted-foreground mb-4">
+            <p className="text-xl text-muted-foreground mb-4 break-keep">
               미스터홈클린과 함께한 고객님들의 생생한 후기입니다
             </p>
-            <p className="text-sm text-muted-foreground">
+            <p className="text-sm text-muted-foreground break-keep">
               이미지를 클릭하시면 크게 보실 수 있습니다
             </p>
           </div>
@@ -581,11 +579,11 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-center gap-2 mb-4">
             <AlertTriangle className="w-8 h-8 text-destructive" />
-            <h2 className="text-4xl font-bold text-center text-foreground" data-testid="text-additional-cost-title">
+            <h2 className="text-4xl font-bold text-center text-foreground break-keep" data-testid="text-additional-cost-title">
               이런 경우엔 별도 비용이 생겨요
             </h2>
           </div>
-          <p className="text-center text-muted-foreground mb-16" data-testid="text-additional-cost-desc">
+          <p className="text-center text-muted-foreground mb-16 break-keep" data-testid="text-additional-cost-desc">
             아래 항목에 해당되는 경우 추가 비용이 발생할 수 있습니다
           </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -607,7 +605,7 @@ export default function Home() {
                 <div className="flex-shrink-0 w-6 h-6 bg-destructive rounded-full flex items-center justify-center">
                   <span className="text-white text-sm font-bold">!</span>
                 </div>
-                <span className="text-sm text-foreground">{item}</span>
+                <span className="text-sm text-foreground break-keep">{item}</span>
               </div>
             ))}
           </div>
@@ -617,11 +615,11 @@ export default function Home() {
       {/* Section 9: Closing CTA */}
       <section id="closing-cta" className="py-24 bg-primary">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6" data-testid="text-closing-title">
+          <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6 break-keep" data-testid="text-closing-title">
             망설임은 먼지만 쌓일 뿐!<br />
             청소는 미스터홈클린이 책임질게요
           </h2>
-          <p className="text-xl text-white/90 mb-12" data-testid="text-closing-desc">
+          <p className="text-xl text-white/90 mb-12 break-keep" data-testid="text-closing-desc">
             지금 바로 상담 신청하시고 깨끗한 공간을 만나보세요
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -648,42 +646,42 @@ export default function Home() {
             <div>
               <div className="flex items-center gap-2 mb-4">
                 <img src={logoImage} alt="미스터홈클린 로고" className="h-10 w-auto" />
-                <span className="text-lg font-bold" data-testid="text-footer-brand">미스터홈클린</span>
+                <span className="text-lg font-bold break-keep" data-testid="text-footer-brand">미스터홈클린</span>
               </div>
-              <p className="text-sm text-muted-foreground" data-testid="text-footer-tagline">
+              <p className="text-sm text-muted-foreground break-keep" data-testid="text-footer-tagline">
                 전문적인 청소 서비스로<br />
                 여러분의 공간을 새롭게
               </p>
             </div>
             <div>
-              <h4 className="font-bold text-foreground mb-4" data-testid="text-footer-services-heading">서비스</h4>
+              <h4 className="font-bold text-foreground mb-4 break-keep" data-testid="text-footer-services-heading">서비스</h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><a href="#services" className="hover:text-foreground" data-testid="link-footer-movein">입주/이사청소</a></li>
-                <li><a href="#services" className="hover:text-foreground" data-testid="link-footer-office">사무실청소</a></li>
-                <li><a href="#services" className="hover:text-foreground" data-testid="link-footer-special">특수청소</a></li>
-                <li><a href="#services" className="hover:text-foreground" data-testid="link-footer-window">외창청소</a></li>
+                <li><a href="#services" className="hover:text-foreground break-keep" data-testid="link-footer-movein">입주/이사청소</a></li>
+                <li><a href="#services" className="hover:text-foreground break-keep" data-testid="link-footer-office">사무실청소</a></li>
+                <li><a href="#services" className="hover:text-foreground break-keep" data-testid="link-footer-special">특수청소</a></li>
+                <li><a href="#services" className="hover:text-foreground break-keep" data-testid="link-footer-window">외창청소</a></li>
               </ul>
             </div>
             <div>
-              <h4 className="font-bold text-foreground mb-4" data-testid="text-footer-support-heading">고객센터</h4>
+              <h4 className="font-bold text-foreground mb-4 break-keep" data-testid="text-footer-support-heading">고객센터</h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li data-testid="text-footer-phone">전화: 010-0000-0000</li>
-                <li data-testid="text-footer-email">이메일: info@mrhomeclean.com</li>
-                <li data-testid="text-footer-hours">운영시간: 09:00 - 18:00</li>
+                <li className="break-keep" data-testid="text-footer-phone">전화: 010-0000-0000</li>
+                <li className="break-keep" data-testid="text-footer-email">이메일: info@mrhomeclean.com</li>
+                <li className="break-keep" data-testid="text-footer-hours">운영시간: 09:00 - 18:00</li>
               </ul>
             </div>
             <div>
-              <h4 className="font-bold text-foreground mb-4" data-testid="text-footer-company-heading">회사정보</h4>
+              <h4 className="font-bold text-foreground mb-4 break-keep" data-testid="text-footer-company-heading">회사정보</h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li data-testid="text-footer-company-name">상호명: 미스터홈클린</li>
-                <li data-testid="text-footer-representative">대표자: 홍길동</li>
-                <li data-testid="text-footer-business-number">사업자번호: 000-00-00000</li>
-                <li data-testid="text-footer-address">주소: 서울특별시 강남구</li>
+                <li className="break-keep" data-testid="text-footer-company-name">상호명: 미스터홈클린</li>
+                <li className="break-keep" data-testid="text-footer-representative">대표자: 홍길동</li>
+                <li className="break-keep" data-testid="text-footer-business-number">사업자번호: 000-00-00000</li>
+                <li className="break-keep" data-testid="text-footer-address">주소: 서울특별시 강남구</li>
               </ul>
             </div>
           </div>
           <div className="pt-8 border-t text-center text-sm text-muted-foreground">
-            <p data-testid="text-footer-copyright">Copyright 2024 미스터홈클린. All rights reserved.</p>
+            <p className="break-keep" data-testid="text-footer-copyright">Copyright 2024 미스터홈클린. All rights reserved.</p>
           </div>
         </div>
       </footer>
