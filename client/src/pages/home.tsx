@@ -87,7 +87,7 @@ export default function Home() {
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center gap-2">
               <img src={logoImage} alt="미스터홈클린 로고" className="h-14 w-auto" />
-              <span className="text-xl font-bold text-foreground">미스터홈클린</span>
+              <span className="text-xl font-bold text-primary">미스터홈클린</span>
             </div>
             <div className="hidden md:flex items-center gap-8">
               <a href="#services" className="text-sm font-medium hover-elevate active-elevate-2 px-3 py-2 rounded-md" data-testid="link-nav-home">서비스</a>
