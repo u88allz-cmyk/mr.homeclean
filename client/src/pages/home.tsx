@@ -245,12 +245,15 @@ export default function Home() {
       {/* Section 3: Professional Credibility */}
       <section className="py-24 bg-background">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-6" data-testid="text-credibility-title">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6" data-testid="text-credibility-title">
             전문적인 청소,<br />
-            이제는 선택이 아닌 필수입니다
+            이제는 선택이 아닌<br className="sm:hidden" />
+            필수입니다
           </h2>
-          <p className="text-xl text-muted-foreground leading-relaxed" data-testid="text-credibility-description">
-            저희 미스터홈클린은 전국 어디든 100% 직영으로 운영되는<br />
+          <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed" data-testid="text-credibility-description">
+            저희 미스터홈클린은<br className="sm:hidden" />
+            전국 어디든 100% 직영으로<br className="sm:hidden" />
+            운영되는<br />
             프리미엄 청소 전문 업체입니다
           </p>
         </div>
@@ -622,14 +625,14 @@ export default function Home() {
             지금 바로 상담 신청하시고 깨끗한 공간을 만나보세요
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="tel:010-0000-0000">
-              <Button size="lg" variant="outline" className="text-lg px-8 py-6 bg-white text-primary hover:bg-white/90 border-white" data-testid="button-closing-phone">
+            <a href="tel:010-0000-0000" className="w-full sm:w-auto">
+              <Button size="lg" variant="outline" className="w-full text-lg px-8 py-6 bg-white text-primary hover:bg-white/90 border-white" data-testid="button-closing-phone">
                 <Phone className="w-5 h-5 mr-2" />
                 010-0000-0000
               </Button>
             </a>
-            <a href="https://blog.naver.com/mrclean-" target="_blank" rel="noopener noreferrer">
-              <Button size="lg" variant="outline" className="text-lg px-8 py-6 bg-[#03C75A] text-white hover:bg-[#03C75A]/90 border-[#03C75A]" data-testid="button-closing-blog">
+            <a href="https://blog.naver.com/mrclean-" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+              <Button size="lg" variant="outline" className="w-full text-lg px-8 py-6 bg-[#03C75A] text-white hover:bg-[#03C75A]/90 border-[#03C75A]" data-testid="button-closing-blog">
                 <SiNaver className="w-5 h-5 mr-2" />
                 블로그 포트폴리오 확인하기
               </Button>
