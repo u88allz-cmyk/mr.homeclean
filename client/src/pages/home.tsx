@@ -224,7 +224,7 @@ export default function Home() {
               </div>
             </a>
             <a 
-              href="https://blog.naver.com/example" 
+              href="https://blog.naver.com/mrclean-" 
               target="_blank" 
               rel="noopener noreferrer"
               className="flex items-center gap-6 bg-white rounded-xl p-8 hover-elevate active-elevate-2"
@@ -628,7 +628,7 @@ export default function Home() {
                 010-0000-0000
               </Button>
             </a>
-            <a href="https://blog.naver.com/example" target="_blank" rel="noopener noreferrer">
+            <a href="https://blog.naver.com/mrclean-" target="_blank" rel="noopener noreferrer">
               <Button size="lg" variant="outline" className="text-lg px-8 py-6 bg-[#03C75A] text-white hover:bg-[#03C75A]/90 border-[#03C75A]" data-testid="button-closing-blog">
                 <SiNaver className="w-5 h-5 mr-2" />
                 블로그 포트폴리오 확인하기
@@ -665,7 +665,7 @@ export default function Home() {
               <h4 className="font-bold text-foreground mb-4" data-testid="text-footer-support-heading">고객센터</h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li data-testid="text-footer-phone">전화: 010-0000-0000</li>
-                <li data-testid="text-footer-blog"><a href="https://blog.naver.com/example" target="_blank" rel="noopener noreferrer" className="hover:text-foreground">블로그: 포트폴리오 확인</a></li>
+                <li data-testid="text-footer-blog"><a href="https://blog.naver.com/mrclean-" target="_blank" rel="noopener noreferrer" className="hover:text-foreground">블로그: 포트폴리오 확인</a></li>
                 <li data-testid="text-footer-email">이메일: info@mrhomeclean.com</li>
                 <li data-testid="text-footer-hours">운영시간: 09:00 - 18:00</li>
               </ul>
