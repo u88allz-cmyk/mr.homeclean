@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Phone, MessageCircle, CheckCircle, Sparkles, Shield, Users, Clock, Award, TrendingUp, MapPin, HeadphonesIcon, Wrench, Menu, X, Home as HomeIcon, Briefcase, Baby, Building2, AlertTriangle } from "lucide-react";
+import { Phone, MessageCircle, CheckCircle, Shield, Users, Clock, Award, TrendingUp, MapPin, HeadphonesIcon, Wrench, Menu, X, Home as HomeIcon, Briefcase, Baby, Building2, AlertTriangle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { ConsultationForm } from "@/components/consultation-form";
@@ -8,6 +8,7 @@ import moveInImage from "@assets/generated_images/Move-in_cleaning_service_71fd0
 import officeImage from "@assets/generated_images/Office_cleaning_service_18481c47.png";
 import specialImage from "@assets/generated_images/Special_cleaning_service_f03850be.png";
 import windowImage from "@assets/generated_images/Window_cleaning_service_aebf7d2d.png";
+import logoImage from "@assets/미스터홈클린 로고_1763451167819.png";
 
 export default function Home() {
   const [isConsultationOpen, setIsConsultationOpen] = useState(false);
@@ -29,7 +30,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center gap-2">
-              <Sparkles className="w-7 h-7 text-primary" />
+              <img src={logoImage} alt="미스터홈클린 로고" className="h-10 w-auto" />
               <span className="text-xl font-bold text-foreground">미스터홈클린</span>
             </div>
             <div className="hidden md:flex items-center gap-8">
@@ -458,7 +459,7 @@ export default function Home() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
             <div>
               <div className="flex items-center gap-2 mb-4">
-                <Sparkles className="w-6 h-6 text-primary" />
+                <img src={logoImage} alt="미스터홈클린 로고" className="h-8 w-auto" />
                 <span className="text-lg font-bold" data-testid="text-footer-brand">미스터홈클린</span>
               </div>
               <p className="text-sm text-muted-foreground" data-testid="text-footer-tagline">
