@@ -1,0 +1,437 @@
+import { Phone, MessageCircle, CheckCircle, Sparkles, Shield, Users, Clock, Award, TrendingUp, MapPin, HeadphonesIcon, Wrench } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import heroImage from "@assets/generated_images/Hero_cleaning_living_room_218e8096.png";
+import moveInImage from "@assets/generated_images/Move-in_cleaning_service_71fd049b.png";
+import officeImage from "@assets/generated_images/Office_cleaning_service_18481c47.png";
+import specialImage from "@assets/generated_images/Special_cleaning_service_f03850be.png";
+import windowImage from "@assets/generated_images/Window_cleaning_service_aebf7d2d.png";
+
+export default function Home() {
+  const scrollToContact = () => {
+    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  return (
+    <div className="min-h-screen bg-background">
+      {/* Navigation */}
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16">
+            <div className="flex items-center gap-2">
+              <Sparkles className="w-7 h-7 text-primary" />
+              <span className="text-xl font-bold text-foreground">미스터홈클린</span>
+            </div>
+            <div className="hidden md:flex items-center gap-8">
+              <a href="#services" className="text-sm font-medium hover-elevate active-elevate-2 px-3 py-2 rounded-md">홈클리닝</a>
+              <a href="#services" className="text-sm font-medium hover-elevate active-elevate-2 px-3 py-2 rounded-md">오피스클리닝</a>
+              <a href="#services" className="text-sm font-medium hover-elevate active-elevate-2 px-3 py-2 rounded-md">특수클리닝</a>
+              <a href="#services" className="text-sm font-medium hover-elevate active-elevate-2 px-3 py-2 rounded-md">외창클리닝</a>
+              <Button size="sm" onClick={scrollToContact} data-testid="button-nav-contact">
+                상담문의
+              </Button>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      {/* Section 1: Hero */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
+        <div className="absolute inset-0 z-0">
+          <img 
+            src={heroImage} 
+            alt="프리미엄 청소 서비스" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70"></div>
+        </div>
+        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight" data-testid="text-hero-title">
+            전문적인 청소,<br />
+            이제는 선택이 아닌<br />
+            <span className="text-primary">필수</span>입니다
+          </h1>
+          <p className="text-xl sm:text-2xl text-white/90 mb-12 font-medium">
+            미스터홈클린이 책임지는 프리미엄 청소 서비스
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button 
+              size="lg" 
+              className="text-lg px-8 py-6 bg-primary hover:bg-primary/90" 
+              onClick={scrollToContact}
+              data-testid="button-hero-consult"
+            >
+              <Phone className="w-5 h-5 mr-2" />
+              무료 상담받기
+            </Button>
+            <Button 
+              size="lg" 
+              variant="outline" 
+              className="text-lg px-8 py-6 bg-background/10 backdrop-blur-md border-white/30 text-white hover:bg-background/20"
+              onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
+              data-testid="button-hero-services"
+            >
+              서비스 둘러보기
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 2: Contact CTA */}
+      <section id="contact" className="py-16 bg-primary">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-2 gap-8">
+            <a 
+              href="tel:010-0000-0000" 
+              className="flex items-center gap-6 bg-white rounded-xl p-8 hover-elevate active-elevate-2"
+              data-testid="link-phone-contact"
+            >
+              <div className="flex-shrink-0 w-16 h-16 bg-primary rounded-full flex items-center justify-center">
+                <Phone className="w-8 h-8 text-white" />
+              </div>
+              <div>
+                <p className="text-sm text-muted-foreground mb-1">전화 상담</p>
+                <p className="text-2xl font-bold text-foreground">010-0000-0000</p>
+              </div>
+            </a>
+            <a 
+              href="http://pf.kakao.com/_example" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex items-center gap-6 bg-white rounded-xl p-8 hover-elevate active-elevate-2"
+              data-testid="link-kakao-contact"
+            >
+              <div className="flex-shrink-0 w-16 h-16 bg-[#FEE500] rounded-full flex items-center justify-center">
+                <MessageCircle className="w-8 h-8 text-[#381E1F]" />
+              </div>
+              <div>
+                <p className="text-sm text-muted-foreground mb-1">카카오톡 상담</p>
+                <p className="text-2xl font-bold text-foreground">@미스터홈클린</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 3: Professional Credibility */}
+      <section className="py-24 bg-background">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-6" data-testid="text-credibility-title">
+            전문적인 청소,<br />
+            이제는 선택이 아닌 필수입니다
+          </h2>
+          <p className="text-xl text-muted-foreground leading-relaxed">
+            저희 미스터홈클린은 전국 어디든 100% 직영으로 운영되는<br />
+            프리미엄 청소 전문 업체입니다
+          </p>
+        </div>
+      </section>
+
+      {/* Section 4: 9 Strengths */}
+      <section className="py-24 bg-card">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-4xl font-bold text-center text-foreground mb-16" data-testid="text-strengths-title">
+            왜 미스터홈클린 일까요?
+          </h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                icon: Shield,
+                title: "본사 대표 직접 현장 투입",
+                description: "모든 현장에 본사 대표가 직접 관리하여 최상의 서비스 품질을 보장합니다"
+              },
+              {
+                icon: TrendingUp,
+                title: "월평균 1000개 청소 진행",
+                description: "풍부한 경험과 노하우로 어떤 공간이든 완벽하게 청소합니다"
+              },
+              {
+                icon: Users,
+                title: "100% 직영팀 운영",
+                description: "하청 없이 직영팀만 운영하여 일관된 고품질 서비스를 제공합니다"
+              },
+              {
+                icon: Award,
+                title: "무상 A/S 보장",
+                description: "청소 후 불만족 시 즉시 재작업해드리며, 추가 비용이 전혀 없습니다"
+              },
+              {
+                icon: Wrench,
+                title: "전문 장비 사용",
+                description: "최신 전문 청소 장비와 친환경 세제를 사용하여 안전하고 깨끗하게"
+              },
+              {
+                icon: Clock,
+                title: "신속한 예약 시스템",
+                description: "원하시는 날짜와 시간에 맞춰 빠르게 예약하실 수 있습니다"
+              },
+              {
+                icon: HeadphonesIcon,
+                title: "24시간 상담 가능",
+                description: "언제든지 전화나 카카오톡으로 편하게 상담받으실 수 있습니다"
+              },
+              {
+                icon: MapPin,
+                title: "전국 서비스 가능",
+                description: "서울, 경기, 인천은 물론 전국 어디든 방문 서비스가 가능합니다"
+              },
+              {
+                icon: Sparkles,
+                title: "무료 부가 서비스",
+                description: "곰팡이 제거, 악취 제거 등 추가 서비스를 무료로 제공합니다"
+              }
+            ].map((strength, index) => (
+              <Card key={index} className="p-8 hover-elevate" data-testid={`card-strength-${index}`}>
+                <strength.icon className="w-12 h-12 text-primary mb-4" />
+                <h3 className="text-xl font-bold text-foreground mb-3">{strength.title}</h3>
+                <p className="text-muted-foreground leading-relaxed">{strength.description}</p>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Section 5: Target Customers */}
+      <section className="py-24 bg-background">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-4xl font-bold text-center text-foreground mb-16" data-testid="text-target-title">
+            미스터홈클린,<br />
+            이런 분들에게 딱이에요
+          </h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              {
+                icon: "🏠",
+                title: "이사/입주 예정이신 분",
+                description: "깨끗한 공간에서 새로운 시작을 준비하세요"
+              },
+              {
+                icon: "💼",
+                title: "바쁜 직장인",
+                description: "시간이 부족한 분들을 위한 전문 청소 서비스"
+              },
+              {
+                icon: "👶",
+                title: "영유아가 있는 가정",
+                description: "안전한 친환경 세제로 우리 아이를 지켜요"
+              },
+              {
+                icon: "🏢",
+                title: "사무실/상가 운영자",
+                description: "쾌적한 근무환경으로 업무 효율을 높이세요"
+              }
+            ].map((target, index) => (
+              <Card key={index} className="p-8 text-center hover-elevate" data-testid={`card-target-${index}`}>
+                <div className="text-5xl mb-4">{target.icon}</div>
+                <h3 className="text-xl font-bold text-foreground mb-3">{target.title}</h3>
+                <p className="text-muted-foreground">{target.description}</p>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Section 6: Main Services */}
+      <section id="services" className="py-24 bg-card">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-4xl font-bold text-center text-foreground mb-16" data-testid="text-services-title">
+            미스터홈클린의 대표 서비스
+          </h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            {[
+              {
+                image: moveInImage,
+                title: "입주/이사청소",
+                description: "새집처럼 깨끗하게! 구석구석 완벽한 마무리로 기분 좋은 시작을 도와드립니다."
+              },
+              {
+                image: officeImage,
+                title: "사무실청소",
+                description: "쾌적한 업무환경! 직원들의 건강과 업무 효율을 높이는 전문 오피스 클리닝"
+              },
+              {
+                image: specialImage,
+                title: "특수청소",
+                description: "어려운 청소도 OK! 곰팡이 제거, 싱크대 배수구 등 특수 청소 전문가"
+              },
+              {
+                image: windowImage,
+                title: "외창청소",
+                description: "투명하게 빛나는 창문! 고층 아파트도 안전하게 깨끗이 닦아드립니다"
+              }
+            ].map((service, index) => (
+              <Card key={index} className="overflow-hidden hover-elevate" data-testid={`card-service-${index}`}>
+                <div className="aspect-[4/3] overflow-hidden">
+                  <img 
+                    src={service.image} 
+                    alt={service.title} 
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="p-8">
+                  <h3 className="text-2xl font-bold text-foreground mb-3">{service.title}</h3>
+                  <p className="text-muted-foreground mb-6">{service.description}</p>
+                  <Button variant="outline" className="w-full" onClick={scrollToContact} data-testid={`button-service-${index}`}>
+                    상담 신청하기
+                  </Button>
+                </div>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Section 7: Work Scope */}
+      <section className="py-24 bg-background">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-4xl font-bold text-center text-foreground mb-16" data-testid="text-scope-title">
+            미스터홈클린,<br />
+            작업범위는?
+          </h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              {
+                area: "주방",
+                items: ["싱크대 내외부 세척", "가스레인지 탈거 청소", "후드 필터 탈거 세척", "주방 벽면 타일 청소", "수납장 내부 청소", "스팀 살균 소독"]
+              },
+              {
+                area: "화장실",
+                items: ["변기 스팀 살균", "타일 줄눈 곰팡이 제거", "샤워부스 물때 제거", "세면대 광택", "거울 물때 제거", "환풍구 청소"]
+              },
+              {
+                area: "베란다",
+                items: ["창틀 먼지 제거", "바닥 물청소", "난간 청소", "샷시 청소", "벽면 먼지 제거", "배수구 청소"]
+              },
+              {
+                area: "거실/방",
+                items: ["바닥 물걸레질", "벽면 먼지 제거", "조명 청소", "창문틀 청소", "스위치 살균", "문틀 먼지 제거"]
+              }
+            ].map((scope, index) => (
+              <Card key={index} className="p-6" data-testid={`card-scope-${index}`}>
+                <h3 className="text-xl font-bold text-foreground mb-6 pb-3 border-b">{scope.area}</h3>
+                <ul className="space-y-3">
+                  {scope.items.map((item, idx) => (
+                    <li key={idx} className="flex items-start gap-2">
+                      <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                      <span className="text-sm text-foreground">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Section 8: Additional Costs */}
+      <section className="py-24 bg-card">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-4xl font-bold text-center text-foreground mb-4" data-testid="text-additional-cost-title">
+            이런 경우엔 별도 비용이 생겨요❗
+          </h2>
+          <p className="text-center text-muted-foreground mb-16">
+            아래 항목에 해당되는 경우 추가 비용이 발생할 수 있습니다
+          </p>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              "장판 및 벽지 제거 작업",
+              "페인트, 본드 자국 제거",
+              "심한 곰팡이 및 찌든 때 제거",
+              "가구/짐 정리 요청 시",
+              "고층 외부 창문 청소",
+              "특수 코팅 및 광택 작업",
+              "대형 폐기물 처리",
+              "추가 인력 투입 필요 시"
+            ].map((item, index) => (
+              <div 
+                key={index} 
+                className="flex items-center gap-3 p-4 bg-destructive/10 rounded-lg border border-destructive/20"
+                data-testid={`item-cost-${index}`}
+              >
+                <div className="flex-shrink-0 w-6 h-6 bg-destructive rounded-full flex items-center justify-center">
+                  <span className="text-white text-sm font-bold">!</span>
+                </div>
+                <span className="text-sm text-foreground">{item}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Section 9: Closing CTA */}
+      <section className="py-24 bg-primary">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6" data-testid="text-closing-title">
+            망설임은 먼지만 쌓일 뿐!<br />
+            청소는 미스터홈클린이 책임질게요
+          </h2>
+          <p className="text-xl text-white/90 mb-12">
+            지금 바로 상담 신청하시고 깨끗한 공간을 만나보세요
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="tel:010-0000-0000">
+              <Button size="lg" variant="outline" className="text-lg px-8 py-6 bg-white text-primary hover:bg-white/90 border-white" data-testid="button-closing-phone">
+                <Phone className="w-5 h-5 mr-2" />
+                010-0000-0000
+              </Button>
+            </a>
+            <a href="http://pf.kakao.com/_example" target="_blank" rel="noopener noreferrer">
+              <Button size="lg" variant="outline" className="text-lg px-8 py-6 bg-[#FEE500] text-[#381E1F] hover:bg-[#FEE500]/90 border-[#FEE500]" data-testid="button-closing-kakao">
+                <MessageCircle className="w-5 h-5 mr-2" />
+                카카오톡 상담
+              </Button>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 10: Footer */}
+      <footer className="bg-card py-16 border-t">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+            <div>
+              <div className="flex items-center gap-2 mb-4">
+                <Sparkles className="w-6 h-6 text-primary" />
+                <span className="text-lg font-bold">미스터홈클린</span>
+              </div>
+              <p className="text-sm text-muted-foreground">
+                전문적인 청소 서비스로<br />
+                여러분의 공간을 새롭게
+              </p>
+            </div>
+            <div>
+              <h4 className="font-bold text-foreground mb-4">서비스</h4>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li><a href="#services" className="hover:text-foreground">입주/이사청소</a></li>
+                <li><a href="#services" className="hover:text-foreground">사무실청소</a></li>
+                <li><a href="#services" className="hover:text-foreground">특수청소</a></li>
+                <li><a href="#services" className="hover:text-foreground">외창청소</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-bold text-foreground mb-4">고객센터</h4>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li>전화: 010-0000-0000</li>
+                <li>카카오톡: @미스터홈클린</li>
+                <li>이메일: info@mrhomeclean.com</li>
+                <li>운영시간: 09:00 - 18:00</li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-bold text-foreground mb-4">회사정보</h4>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li>상호명: 미스터홈클린</li>
+                <li>대표자: 홍길동</li>
+                <li>사업자번호: 000-00-00000</li>
+                <li>주소: 서울특별시 강남구</li>
+              </ul>
+            </div>
+          </div>
+          <div className="pt-8 border-t text-center text-sm text-muted-foreground">
+            <p>© 2024 미스터홈클린. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}
