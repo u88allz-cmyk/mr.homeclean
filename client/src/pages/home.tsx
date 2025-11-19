@@ -177,36 +177,6 @@ export default function Home() {
       {/* Consultation Form Dialog */}
       <ConsultationForm open={isConsultationOpen} onOpenChange={handleConsultationClose} initialServiceType={initialServiceType} />
 
-      {/* Brand Introduction Section */}
-      <section className="pt-24 pb-12 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            {/* Left: Logo */}
-            <div className="flex justify-center" data-testid="section-brand-logo">
-              <img 
-                src={newLogoImage} 
-                alt="미스터홈클린 로고" 
-                className="w-full max-w-md"
-              />
-            </div>
-            
-            {/* Right: Text */}
-            <div className="text-center md:text-left" data-testid="section-brand-text">
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight break-keep mb-6">
-                전문적인 청소,<br />
-                이제는 선택이 아닌<br />
-                <span className="text-primary">필수</span>입니다
-              </h2>
-              <p className="text-xl sm:text-2xl text-muted-foreground leading-relaxed break-keep">
-                저희 미스터홈클린은 전국 어디든<br />
-                100% 직영으로 운영되는<br />
-                프리미엄 청소 전문 업체입니다.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Section 1: Hero */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
         <div className="absolute inset-0 z-0">
@@ -288,15 +258,33 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Section 3: Brand Logo */}
-      <section className="py-24 bg-background">
-        <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-center">
-          <img 
-            src={logoCharacter} 
-            alt="미스터홈클린 로고" 
-            className="w-full max-w-md h-auto"
-            data-testid="img-brand-logo"
-          />
+      {/* Section 3: Brand Introduction */}
+      <section className="py-20 bg-background">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            {/* Left: Logo */}
+            <div className="flex justify-center" data-testid="section-brand-logo">
+              <img 
+                src={newLogoImage} 
+                alt="미스터홈클린 로고" 
+                className="w-full max-w-md"
+              />
+            </div>
+            
+            {/* Right: Text */}
+            <div className="text-center md:text-left" data-testid="section-brand-text">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight break-keep mb-6">
+                전문적인 청소,<br />
+                이제는 선택이 아닌<br />
+                <span className="text-primary">필수</span>입니다
+              </h2>
+              <p className="text-xl sm:text-2xl text-muted-foreground leading-relaxed break-keep">
+                저희 미스터홈클린은 전국 어디든<br />
+                100% 직영으로 운영되는<br />
+                프리미엄 청소 전문 업체입니다.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
