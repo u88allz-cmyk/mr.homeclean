@@ -31,6 +31,7 @@ export default function Home() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [currentReviewIndex, setCurrentReviewIndex] = useState(0);
   const [selectedReviewImage, setSelectedReviewImage] = useState<string | null>(null);
+  const [initialServiceType, setInitialServiceType] = useState<string>("");
 
   const reviews = [
     { img: review1, alt: "고객 리뷰 1" },
@@ -49,9 +50,17 @@ export default function Home() {
     document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const openConsultation = () => {
+  const openConsultation = (serviceType?: string) => {
+    setInitialServiceType(serviceType || "");
     setIsConsultationOpen(true);
     setIsMobileMenuOpen(false);
+  };
+
+  const handleConsultationClose = (open: boolean) => {
+    setIsConsultationOpen(open);
+    if (!open) {
+      setInitialServiceType("");
+    }
   };
 
   const nextReview = () => {
@@ -98,7 +107,7 @@ export default function Home() {
               <a href="#work-scope" className="text-sm font-medium hover-elevate active-elevate-2 px-3 py-2 rounded-md" data-testid="link-nav-special">작업범위</a>
               <a href="#reviews" className="text-sm font-medium hover-elevate active-elevate-2 px-3 py-2 rounded-md" data-testid="link-nav-reviews">고객리뷰</a>
               <a href="#pricing" className="text-sm font-medium hover-elevate active-elevate-2 px-3 py-2 rounded-md" data-testid="link-nav-window">별도문의</a>
-              <Button size="sm" onClick={openConsultation} data-testid="button-nav-contact">
+              <Button size="sm" onClick={() => openConsultation()} data-testid="button-nav-contact">
                 상담문의
               </Button>
             </div>
@@ -156,7 +165,7 @@ export default function Home() {
               >
                 별도문의
               </a>
-              <Button className="w-full" onClick={openConsultation} data-testid="button-mobile-contact">
+              <Button className="w-full" onClick={() => openConsultation()} data-testid="button-mobile-contact">
                 상담문의
               </Button>
             </div>
@@ -165,7 +174,7 @@ export default function Home() {
       </nav>
 
       {/* Consultation Form Dialog */}
-      <ConsultationForm open={isConsultationOpen} onOpenChange={setIsConsultationOpen} />
+      <ConsultationForm open={isConsultationOpen} onOpenChange={handleConsultationClose} initialServiceType={initialServiceType} />
 
       {/* Section 1: Hero */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
@@ -194,7 +203,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-6">
             <button 
-              onClick={openConsultation}
+              onClick={() => openConsultation()}
               className="flex items-center gap-6 bg-white rounded-xl p-8 hover-elevate active-elevate-2 text-left"
               data-testid="button-contact-inquiry"
             >
@@ -218,7 +227,7 @@ export default function Home() {
               </div>
             </button>
             <a 
-              href="tel:010-0000-0000" 
+              href="tel:070-7106-1658" 
               className="flex items-center gap-6 bg-white rounded-xl p-8 hover-elevate active-elevate-2"
               data-testid="link-phone-contact"
             >
@@ -405,7 +414,7 @@ export default function Home() {
                 <div className="p-8">
                   <h3 className="text-2xl font-bold text-foreground mb-3 break-keep" data-testid={`text-service-title-${index}`}>{service.title}</h3>
                   <p className="text-muted-foreground mb-6 break-keep" data-testid={`text-service-desc-${index}`}>{service.description}</p>
-                  <Button variant="outline" className="w-full break-keep" onClick={openConsultation} data-testid={`button-service-${index}`}>
+                  <Button variant="outline" className="w-full break-keep" onClick={() => openConsultation(service.title)} data-testid={`button-service-${index}`}>
                     상담 신청하기
                   </Button>
                 </div>
@@ -549,7 +558,7 @@ export default function Home() {
             <p className="text-lg text-muted-foreground mb-6">
               더 많은 고객님들이 미스터홈클린의 전문성에 만족하고 계십니다
             </p>
-            <Button size="lg" onClick={openConsultation} data-testid="button-reviews-consult">
+            <Button size="lg" onClick={() => openConsultation()} data-testid="button-reviews-consult">
               <Phone className="w-5 h-5 mr-2" />
               지금 바로 상담받기
             </Button>
@@ -636,12 +645,12 @@ export default function Home() {
           <div className="flex flex-col gap-6 items-center">
             <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto justify-center">
               <Button 
-                onClick={openConsultation}
+                onClick={() => openConsultation()}
                 size="lg"
                 className="w-full sm:w-auto min-h-11" 
                 data-testid="button-closing-consultation"
               >
-                상담연결
+                상담문의
               </Button>
               <a href="https://blog.naver.com/mrclean-" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
                 <Button size="lg" className="w-full bg-[#03C75A] text-white border border-[#03C75A] min-h-11" data-testid="button-closing-blog">

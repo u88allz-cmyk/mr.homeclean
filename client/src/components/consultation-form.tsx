@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
@@ -17,6 +17,7 @@ import { insertConsultationSchema } from "@shared/schema";
 interface ConsultationFormProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
+  initialServiceType?: string;
 }
 
 const formSchema = insertConsultationSchema.extend({
@@ -25,7 +26,7 @@ const formSchema = insertConsultationSchema.extend({
   serviceType: z.string().min(1, "서비스를 선택해주세요"),
 });
 
-export function ConsultationForm({ open, onOpenChange }: ConsultationFormProps) {
+export function ConsultationForm({ open, onOpenChange, initialServiceType = "" }: ConsultationFormProps) {
   const { toast } = useToast();
   const [isSubmitted, setIsSubmitted] = useState(false);
 
@@ -34,7 +35,7 @@ export function ConsultationForm({ open, onOpenChange }: ConsultationFormProps) 
     defaultValues: {
       name: "",
       phone: "",
-      serviceType: "",
+      serviceType: initialServiceType,
       message: "",
     },
   });
@@ -67,6 +68,13 @@ export function ConsultationForm({ open, onOpenChange }: ConsultationFormProps) 
   const onSubmit = (data: z.infer<typeof formSchema>) => {
     mutation.mutate(data);
   };
+
+  // Update form when initialServiceType changes
+  useEffect(() => {
+    if (open) {
+      form.setValue("serviceType", initialServiceType);
+    }
+  }, [initialServiceType, open, form]);
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
