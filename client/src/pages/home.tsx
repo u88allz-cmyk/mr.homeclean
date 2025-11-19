@@ -668,18 +668,16 @@ export default function Home() {
             <div>
               <h4 className="font-bold text-foreground mb-4 break-keep" data-testid="text-footer-support-heading">고객센터</h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li className="break-keep" data-testid="text-footer-phone">전화: 010-0000-0000</li>
-                <li className="break-keep" data-testid="text-footer-email">이메일: info@mrhomeclean.com</li>
-                <li className="break-keep" data-testid="text-footer-hours">운영시간: 09:00 - 18:00</li>
+                <li className="break-keep" data-testid="text-footer-phone">전화: 070-7106-1658</li>
+                <li className="break-keep" data-testid="text-footer-hours">운영시간: 24시간 연중무휴</li>
               </ul>
             </div>
             <div>
               <h4 className="font-bold text-foreground mb-4 break-keep" data-testid="text-footer-company-heading">회사정보</h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li className="break-keep" data-testid="text-footer-company-name">상호명: 미스터홈클린</li>
-                <li className="break-keep" data-testid="text-footer-representative">대표자: 홍길동</li>
-                <li className="break-keep" data-testid="text-footer-business-number">사업자번호: 000-00-00000</li>
-                <li className="break-keep" data-testid="text-footer-address">주소: 서울특별시 강남구</li>
+                <li className="break-keep" data-testid="text-footer-business-number">사업자번호: 121-36-10314</li>
+                <li className="break-keep" data-testid="text-footer-address">주소: 경기도 양주시 부흥로 1936, 4층</li>
               </ul>
             </div>
           </div>
