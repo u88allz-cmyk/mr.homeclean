@@ -91,11 +91,11 @@ export default function Home() {
               <span className="text-xl font-bold text-primary">미스터홈클린</span>
             </div>
             <div className="hidden md:flex items-center gap-8">
-              <a href="#services" className="text-sm font-medium hover-elevate active-elevate-2 px-3 py-2 rounded-md" data-testid="link-nav-home">서비스</a>
+              <a href="#services" className="text-sm font-medium hover-elevate active-elevate-2 px-3 py-2 rounded-md" data-testid="link-nav-home">클린서비스</a>
               <a href="#strengths" className="text-sm font-medium hover-elevate active-elevate-2 px-3 py-2 rounded-md" data-testid="link-nav-office">왜 선택할까요?</a>
               <a href="#work-scope" className="text-sm font-medium hover-elevate active-elevate-2 px-3 py-2 rounded-md" data-testid="link-nav-special">작업범위</a>
               <a href="#reviews" className="text-sm font-medium hover-elevate active-elevate-2 px-3 py-2 rounded-md" data-testid="link-nav-reviews">고객리뷰</a>
-              <a href="#pricing" className="text-sm font-medium hover-elevate active-elevate-2 px-3 py-2 rounded-md" data-testid="link-nav-window">비용안내</a>
+              <a href="#pricing" className="text-sm font-medium hover-elevate active-elevate-2 px-3 py-2 rounded-md" data-testid="link-nav-window">별도문의</a>
               <Button size="sm" onClick={openConsultation} data-testid="button-nav-contact">
                 상담문의
               </Button>
@@ -120,7 +120,7 @@ export default function Home() {
                 onClick={() => setIsMobileMenuOpen(false)}
                 data-testid="link-mobile-home"
               >
-                서비스
+                클린서비스
               </a>
               <a 
                 href="#strengths" 
@@ -152,7 +152,7 @@ export default function Home() {
                 onClick={() => setIsMobileMenuOpen(false)}
                 data-testid="link-mobile-window"
               >
-                비용안내
+                별도문의
               </a>
               <Button className="w-full" onClick={openConsultation} data-testid="button-mobile-contact">
                 상담문의
