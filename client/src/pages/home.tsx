@@ -314,12 +314,12 @@ export default function Home() {
               {
                 icon: Award,
                 title: "무상 A/S 보장",
-                description: "청소 후 불만족 시 즉시 재작업해드리며, 추가 비용이 전혀 없습니다"
+                description: "청소 미흡시 14일 이내 무료 A/S로 책임감있는 서비스를 제공합니다"
               },
               {
                 icon: Wrench,
-                title: "전문 장비 사용",
-                description: "최신 전문 청소 장비와 친환경 세제를 사용하여 안전하고 깨끗하게"
+                title: "프리미엄 장비 보유",
+                description: "고가 청소 장비 보유로 프리미엄 청소 서비스를 진행합니다"
               },
               {
                 icon: Clock,
