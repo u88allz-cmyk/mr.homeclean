@@ -13,6 +13,7 @@ import specialImage from "@assets/generated_images/Special_cleaning_service_f038
 import windowImage from "@assets/generated_images/Window_cleaning_service_aebf7d2d.png";
 import logoImage from "@assets/미스터홈클린 로고-Photoroom_1763451941494.png";
 import logoCharacter from "@assets/logo-character.png";
+import characterMain from "@assets/character-main.webp";
 import review1 from "@assets/review-1.webp";
 import review2 from "@assets/review-2.webp";
 import review3 from "@assets/review-3.webp";
@@ -615,22 +616,36 @@ export default function Home() {
       </section>
 
       {/* Section 9: Closing CTA */}
-      <section id="closing-cta" className="py-24 bg-primary">
+      <section id="closing-cta" className="py-24 bg-background">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6 break-keep" data-testid="text-closing-title">
-            망설임은 먼지만 쌓일 뿐!<br />
-            청소는 미스터홈클린이 책임질게요
+          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-2 break-keep" data-testid="text-closing-title">
+            신속하고! 깔끔하게!
           </h2>
-          <p className="text-xl text-white/90 mb-12 break-keep" data-testid="text-closing-desc">
-            지금 바로 상담 신청하시고 깨끗한 공간을 만나보세요
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="tel:010-0000-0000" className="w-full sm:w-auto">
-              <Button size="lg" variant="outline" className="w-full text-lg px-8 py-6 bg-white text-primary hover:bg-white/90 border-white" data-testid="button-closing-phone">
-                <Phone className="w-5 h-5 mr-2" />
-                010-0000-0000
-              </Button>
-            </a>
+          <h3 className="text-2xl sm:text-3xl font-bold text-foreground mb-12 break-keep" data-testid="text-closing-subtitle">
+            대한민국 넘버원 "미스터홈클린"
+          </h3>
+          <div className="mb-12 flex justify-center">
+            <img 
+              src={characterMain} 
+              alt="미스터홈클린 캐릭터" 
+              className="max-w-md w-full h-auto"
+              data-testid="img-character-main"
+            />
+          </div>
+          <div className="flex flex-col gap-4 items-center">
+            <Button 
+              size="lg" 
+              onClick={openConsultation}
+              className="w-full sm:w-auto text-lg px-8 py-6" 
+              data-testid="button-closing-consultation"
+            >
+              상담연결
+            </Button>
+            <p className="text-base text-muted-foreground mt-4 mb-2 break-keep max-w-2xl" data-testid="text-closing-blog-desc">
+              미스터홈클린 매일 진행하는<br />
+              청소 현장 전 / 후 비교 사진은<br />
+              블로그 포트폴리오에서 확인해보세요!
+            </p>
             <a href="https://blog.naver.com/mrclean-" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
               <Button size="lg" variant="outline" className="w-full text-lg px-8 py-6 bg-[#03C75A] text-white hover:bg-[#03C75A]/90 border-[#03C75A]" data-testid="button-closing-blog">
                 <SiNaver className="w-5 h-5 mr-2" />
