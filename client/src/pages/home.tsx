@@ -12,6 +12,7 @@ import officeImage from "@assets/generated_images/Office_cleaning_service_18481c
 import specialImage from "@assets/generated_images/Special_cleaning_service_f03850be.png";
 import windowImage from "@assets/generated_images/Window_cleaning_service_aebf7d2d.png";
 import logoImage from "@assets/미스터홈클린 로고-Photoroom_1763451941494.png";
+import logoCharacter from "@assets/logo-character.png";
 import review1 from "@assets/review-1.webp";
 import review2 from "@assets/review-2.webp";
 import review3 from "@assets/review-3.webp";
@@ -245,19 +246,15 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Section 3: Professional Credibility */}
+      {/* Section 3: Brand Logo */}
       <section className="py-24 bg-background">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6 break-keep" data-testid="text-credibility-title">
-            전문적인 청소,<br />
-            이제는 선택이 아닌<br />
-            <span className="text-primary">필수</span>입니다
-          </h2>
-          <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed break-keep" data-testid="text-credibility-description">
-            저희 미스터홈클린은 전국 어디든<br />
-            100% 직영으로 운영되는<br />
-            프리미엄 청소 전문 업체입니다
-          </p>
+        <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-center">
+          <img 
+            src={logoCharacter} 
+            alt="미스터홈클린 로고" 
+            className="w-full max-w-md h-auto"
+            data-testid="img-brand-logo"
+          />
         </div>
       </section>
 
