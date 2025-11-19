@@ -596,7 +596,8 @@ export default function Home() {
               "고층 외부 창문 청소",
               "특수 코팅 및 광택 작업",
               "대형 폐기물 처리",
-              "추가 인력 투입 필요 시"
+              "추가 인력 투입 필요 시",
+              "쓰레기집/고독사 현장"
             ].map((item, index) => (
               <div 
                 key={index} 
