@@ -7,6 +7,7 @@ import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/compone
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import { ConsultationForm } from "@/components/consultation-form";
 import heroImage from "@assets/hero-team.webp";
+import heroTeam2 from "@assets/hero-team-2.webp";
 import moveInImage from "@assets/generated_images/Move-in_cleaning_service_71fd049b.png";
 import officeImage from "@assets/generated_images/Office_cleaning_service_18481c47.png";
 import specialImage from "@assets/generated_images/Special_cleaning_service_f03850be.png";
@@ -618,18 +619,18 @@ export default function Home() {
       {/* Section 9: Closing CTA */}
       <section id="closing-cta" className="py-24 bg-background">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-2 break-keep" data-testid="text-closing-title">
+          <h2 className="text-3xl sm:text-4xl font-bold text-primary mb-2 break-keep" data-testid="text-closing-title">
             신속하고! 깔끔하게!
           </h2>
-          <h3 className="text-2xl sm:text-3xl font-bold text-foreground mb-12 break-keep" data-testid="text-closing-subtitle">
+          <h3 className="text-2xl sm:text-3xl font-bold text-primary mb-12 break-keep" data-testid="text-closing-subtitle">
             대한민국 넘버원 "미스터홈클린"
           </h3>
           <div className="mb-12 flex justify-center">
             <img 
-              src={characterMain} 
-              alt="미스터홈클린 캐릭터" 
-              className="max-w-md w-full h-auto"
-              data-testid="img-character-main"
+              src={heroTeam2} 
+              alt="미스터홈클린 전문 팀" 
+              className="max-w-3xl w-full h-auto rounded-lg"
+              data-testid="img-hero-team"
             />
           </div>
           <div className="flex flex-col gap-4 items-center">
@@ -641,10 +642,10 @@ export default function Home() {
             >
               상담연결
             </Button>
-            <p className="text-base text-muted-foreground mt-4 mb-2 break-keep max-w-2xl" data-testid="text-closing-blog-desc">
-              미스터홈클린 매일 진행하는<br />
+            <p className="text-base font-bold text-foreground mt-4 mb-2 break-keep max-w-2xl" data-testid="text-closing-blog-desc">
+              미스터홈클린이 매일 진행하는<br />
               청소 현장 전 / 후 비교 사진은<br />
-              블로그 포트폴리오에서 확인해보세요!
+              블로그 포트폴리오에서 확인 가능합니다!
             </p>
             <a href="https://blog.naver.com/mrclean-" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
               <Button size="lg" variant="outline" className="w-full text-lg px-8 py-6 bg-[#03C75A] text-white hover:bg-[#03C75A]/90 border-[#03C75A]" data-testid="button-closing-blog">
