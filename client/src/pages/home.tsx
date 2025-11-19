@@ -7,7 +7,7 @@ import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/compone
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import { ConsultationForm } from "@/components/consultation-form";
 import heroImage from "@assets/hero-team.webp";
-import teamClean from "@assets/team-clean.webp";
+import teamFinal from "@assets/team-final.webp";
 import moveInImage from "@assets/generated_images/Move-in_cleaning_service_71fd049b.png";
 import officeImage from "@assets/generated_images/Office_cleaning_service_18481c47.png";
 import specialImage from "@assets/generated_images/Special_cleaning_service_f03850be.png";
@@ -379,7 +379,7 @@ export default function Home() {
               },
               {
                 image: officeImage,
-                title: "사무실청소",
+                title: "사무실/상가 청소",
                 description: "쾌적한 업무환경! 직원들의 건강과 업무 효율을 높이는 전문 오피스 클리닝"
               },
               {
@@ -627,31 +627,34 @@ export default function Home() {
           </h3>
           <div className="mb-12 flex justify-center">
             <img 
-              src={teamClean} 
+              src={teamFinal} 
               alt="미스터홈클린 전문 팀" 
               className="max-w-3xl w-full h-auto rounded-lg"
               data-testid="img-hero-team"
             />
           </div>
-          <div className="flex flex-col gap-4 items-center">
-            <Button 
-              onClick={openConsultation}
-              className="text-base px-20 min-h-11" 
-              data-testid="button-closing-consultation"
-            >
-              상담연결
-            </Button>
-            <p className="text-base font-bold text-foreground mt-4 mb-2 break-keep max-w-2xl" data-testid="text-closing-blog-desc">
+          <div className="flex flex-col gap-6 items-center">
+            <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto justify-center">
+              <Button 
+                onClick={openConsultation}
+                size="lg"
+                className="w-full sm:w-auto min-h-11" 
+                data-testid="button-closing-consultation"
+              >
+                상담연결
+              </Button>
+              <a href="https://blog.naver.com/mrclean-" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+                <Button size="lg" className="w-full bg-[#03C75A] text-white border border-[#03C75A] min-h-11" data-testid="button-closing-blog">
+                  <SiNaver className="w-5 h-5 mr-2" />
+                  블로그 포트폴리오 확인하기
+                </Button>
+              </a>
+            </div>
+            <p className="text-base font-bold text-foreground break-keep max-w-2xl" data-testid="text-closing-blog-desc">
               미스터홈클린이 매일 진행하는<br />
               청소 현장 전 / 후 비교 사진은<br />
               블로그 포트폴리오에서 확인 가능합니다!
             </p>
-            <a href="https://blog.naver.com/mrclean-" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
-              <Button size="lg" variant="outline" className="w-full text-lg px-8 py-6 bg-[#03C75A] text-white hover:bg-[#03C75A]/90 border-[#03C75A]" data-testid="button-closing-blog">
-                <SiNaver className="w-5 h-5 mr-2" />
-                블로그 포트폴리오 확인하기
-              </Button>
-            </a>
           </div>
         </div>
       </section>
@@ -675,7 +678,7 @@ export default function Home() {
               <h4 className="font-bold text-foreground mb-4 break-keep" data-testid="text-footer-services-heading">서비스</h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li><a href="#services" className="hover:text-foreground break-keep" data-testid="link-footer-movein">입주/이사청소</a></li>
-                <li><a href="#services" className="hover:text-foreground break-keep" data-testid="link-footer-office">사무실청소</a></li>
+                <li><a href="#services" className="hover:text-foreground break-keep" data-testid="link-footer-office">사무실/상가 청소</a></li>
                 <li><a href="#services" className="hover:text-foreground break-keep" data-testid="link-footer-special">특수청소</a></li>
                 <li><a href="#services" className="hover:text-foreground break-keep" data-testid="link-footer-window">외창청소</a></li>
               </ul>

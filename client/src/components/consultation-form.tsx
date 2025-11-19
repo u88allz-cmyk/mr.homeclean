@@ -131,7 +131,7 @@ export function ConsultationForm({ open, onOpenChange }: ConsultationFormProps) 
                       </FormControl>
                       <SelectContent>
                         <SelectItem value="입주/이사청소">입주/이사청소</SelectItem>
-                        <SelectItem value="사무실청소">사무실청소</SelectItem>
+                        <SelectItem value="사무실/상가 청소">사무실/상가 청소</SelectItem>
                         <SelectItem value="특수청소">특수청소</SelectItem>
                         <SelectItem value="외창청소">외창청소</SelectItem>
                       </SelectContent>
@@ -153,6 +153,7 @@ export function ConsultationForm({ open, onOpenChange }: ConsultationFormProps) 
                         className="resize-none"
                         rows={4}
                         {...field}
+                        value={field.value || ""}
                         data-testid="textarea-message"
                       />
                     </FormControl>
