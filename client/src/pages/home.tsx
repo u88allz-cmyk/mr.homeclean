@@ -8,10 +8,10 @@ import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import { ConsultationForm } from "@/components/consultation-form";
 import heroImage from "@assets/hero-team.webp";
 import teamFinal from "@assets/team-final.webp";
-import moveInImage from "@assets/generated_images/Move-in_cleaning_service_71fd049b.png";
-import officeImage from "@assets/generated_images/Office_cleaning_service_18481c47.png";
-import specialImage from "@assets/generated_images/Special_cleaning_service_f03850be.png";
-import windowImage from "@assets/generated_images/Window_cleaning_service_aebf7d2d.png";
+import moveInImage from "@assets/service-movein.webp";
+import officeImage from "@assets/service-office.webp";
+import specialImage from "@assets/service-special.webp";
+import windowImage from "@assets/service-window.webp";
 import logoImage from "@assets/미스터홈클린 로고-Photoroom_1763451941494.png";
 import logoCharacter from "@assets/logo-character.png";
 import characterMain from "@assets/character-main.webp";
@@ -651,7 +651,7 @@ export default function Home() {
               </a>
             </div>
             <p className="text-base font-bold text-foreground break-keep max-w-2xl" data-testid="text-closing-blog-desc">
-              미스터홈클린이 매일 진행하는<br />
+              <span className="text-primary">미스터홈클린</span>이 매일 진행하는<br />
               청소 현장 전 / 후 비교 사진은<br />
               블로그 포트폴리오에서 확인 가능합니다!
             </p>
