@@ -7,7 +7,7 @@ import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/compone
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import { ConsultationForm } from "@/components/consultation-form";
 import heroImage from "@assets/hero-team.webp";
-import heroTeam2 from "@assets/hero-team-2.webp";
+import teamClean from "@assets/team-clean.webp";
 import moveInImage from "@assets/generated_images/Move-in_cleaning_service_71fd049b.png";
 import officeImage from "@assets/generated_images/Office_cleaning_service_18481c47.png";
 import specialImage from "@assets/generated_images/Special_cleaning_service_f03850be.png";
@@ -578,7 +578,7 @@ export default function Home() {
       </Dialog>
 
       {/* Section 8: Additional Costs */}
-      <section id="pricing" className="py-24 bg-background">
+      <section id="pricing" className="py-16 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-center gap-2 mb-4">
             <AlertTriangle className="w-8 h-8 text-destructive" />
@@ -617,7 +617,7 @@ export default function Home() {
       </section>
 
       {/* Section 9: Closing CTA */}
-      <section id="closing-cta" className="py-24 bg-background">
+      <section id="closing-cta" className="py-16 bg-background">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl sm:text-4xl font-bold text-primary mb-2 break-keep" data-testid="text-closing-title">
             신속하고! 깔끔하게!
@@ -627,7 +627,7 @@ export default function Home() {
           </h3>
           <div className="mb-12 flex justify-center">
             <img 
-              src={heroTeam2} 
+              src={teamClean} 
               alt="미스터홈클린 전문 팀" 
               className="max-w-3xl w-full h-auto rounded-lg"
               data-testid="img-hero-team"
@@ -635,9 +635,8 @@ export default function Home() {
           </div>
           <div className="flex flex-col gap-4 items-center">
             <Button 
-              size="lg" 
               onClick={openConsultation}
-              className="w-full sm:w-auto text-lg px-8 py-6" 
+              className="text-base px-20 min-h-11" 
               data-testid="button-closing-consultation"
             >
               상담연결

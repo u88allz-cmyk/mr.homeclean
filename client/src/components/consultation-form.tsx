@@ -163,7 +163,7 @@ export function ConsultationForm({ open, onOpenChange }: ConsultationFormProps) 
               
               <Button 
                 type="submit" 
-                className="w-full" 
+                className="w-full min-h-11" 
                 size="lg"
                 disabled={mutation.isPending}
                 data-testid="button-submit-consultation"
