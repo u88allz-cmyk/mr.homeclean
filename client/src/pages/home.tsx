@@ -466,7 +466,7 @@ export default function Home() {
               },
               {
                 area: "거실/방",
-                items: ["바닥 물걸레질", "벽면 먼지 제거", "조명 청소", "창문틀 청소", "스위치 살균", "문틀 먼지 제거"]
+                items: ["전체바닥청소", "벽면 먼지 제거", "조명 청소", "창문틀 청소", "스위치 살균", "문틀 먼지 제거"]
               }
             ].map((scope, index) => (
               <Card key={index} className="p-6" data-testid={`card-scope-${index}`}>
