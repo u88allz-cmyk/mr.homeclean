@@ -8,6 +8,23 @@ The primary purpose is to showcase the company's cleaning services, build credib
 
 ## Recent Changes
 
+**November 21, 2025:**
+- Implemented Netlify Functions for serverless deployment with Aligo SMS integration
+  - Consultation form submissions trigger automatic SMS to owner's phone (070-7106-1658)
+  - SMS contains all consultation details: name, phone, service type, and message
+  - No database storage required - SMS serves as notification and record
+  - Environment variables: ALIGO_API_KEY, ALIGO_USER_ID, ALIGO_SENDER, OWNER_PHONE
+  - Cost: 8.4원 per SMS (Aligo API)
+- Added comprehensive deployment guide (NETLIFY_DEPLOYMENT.md)
+  - GitHub → Netlify deployment workflow
+  - Environment variable configuration
+  - Troubleshooting guide
+- Strengths section updated: reduced from 9 to 6 cards
+  - Removed: "본사 대표 직접 현장 투입", "24시간 상담 가능", "무료 부가 서비스"
+  - Updated A/S card: "확실한 A/S 보증" with 14-day guarantee
+- Work scope refined: "바닥 물걸레질" → "전체바닥청소" in 거실/방 card
+- Review section CTA changed: "지금 바로 상담받기" button now directly calls 070-7106-1658
+
 **November 18, 2024:**
 - Transformed Customer Reviews section from grid to interactive slider
   - Slider displays one large review image at a time (max-w-2xl) with `object-contain` to prevent text cutoff
@@ -41,7 +58,14 @@ The site consists of 11 main sections:
 
 ## User Preferences
 
-Preferred communication style: Simple, everyday language.
+**Communication:**
+- Preferred communication style: Simple, everyday language.
+
+**Data Management:**
+- Consultation data storage: NOT required
+- SMS notification contains all necessary information
+- User prefers to manage consultation requests manually via SMS
+- No database persistence needed in production
 
 ## System Architecture
 
@@ -146,3 +170,40 @@ Preferred communication style: Simple, everyday language.
 
 **Session Management**
 - connect-pg-simple configured for PostgreSQL-backed sessions (infrastructure ready but authentication not actively implemented)
+
+### Deployment Architecture
+
+**Production Deployment (Netlify)**
+- **Platform**: Netlify with Serverless Functions
+- **Build Configuration**: Defined in `netlify.toml`
+  - Build command: `npm run build`
+  - Publish directory: `dist`
+  - Functions directory: `netlify/functions`
+  - Node.js version: 20
+- **SMS Integration**: Aligo API for consultation notifications
+  - Endpoint: `/.netlify/functions/consultations`
+  - Sends SMS to owner's phone (070-7106-1658) with consultation details
+  - Cost: 8.4원 per SMS
+- **Environment Variables** (required):
+  - `ALIGO_API_KEY`: Aligo API key for SMS service
+  - `ALIGO_USER_ID`: Aligo user ID
+  - `ALIGO_SENDER`: Sender phone number (07071061658, no hyphens)
+  - `OWNER_PHONE`: Owner's phone number for receiving SMS (070-7106-1658)
+  - `NODE_ENV`: Set to `production`
+- **Data Persistence**: None - SMS-only notification system
+  - Consultation submissions are validated but not stored
+  - Owner receives SMS with all consultation details
+  - Manual management of consultation requests
+
+**Local Development**
+- Express.js server on port 5000
+- MemStorage for temporary data (lost on server restart)
+- API routes under `/api` namespace
+- Vite HMR for frontend development
+
+**Routing Configuration**
+- `/api/*` → Redirects to `/.netlify/functions/:splat` (Netlify production)
+- `/*` → Redirects to `/index.html` (SPA routing support)
+
+**Documentation**
+- `NETLIFY_DEPLOYMENT.md`: Complete deployment guide with Aligo setup instructions
