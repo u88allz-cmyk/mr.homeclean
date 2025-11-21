@@ -297,11 +297,6 @@ export default function Home() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
-                icon: Shield,
-                title: "본사 대표 직접 현장 투입",
-                description: "모든 현장에 본사 대표가 직접 관리하여 최상의 서비스 품질을 보장합니다"
-              },
-              {
                 icon: TrendingUp,
                 title: "월평균 1000개 청소 진행",
                 description: "풍부한 경험과 노하우로 어떤 공간이든 완벽하게 청소합니다"
@@ -327,19 +322,9 @@ export default function Home() {
                 description: "원하시는 날짜와 시간에 맞춰 빠르게 예약하실 수 있습니다"
               },
               {
-                icon: HeadphonesIcon,
-                title: "24시간 상담 가능",
-                description: "언제든지 전화로 편하게 상담받으실 수 있으며 블로그에서 포트폴리오를 확인하실 수 있습니다"
-              },
-              {
                 icon: MapPin,
                 title: "전국 서비스 가능",
                 description: "서울, 경기, 인천은 물론 전국 어디든 방문 서비스가 가능합니다"
-              },
-              {
-                icon: Sparkles,
-                title: "무료 부가 서비스",
-                description: "곰팡이 제거, 악취 제거 등 추가 서비스를 무료로 제공합니다"
               }
             ].map((strength, index) => (
               <Card key={index} className="p-8 hover-elevate" data-testid={`card-strength-${index}`}>
