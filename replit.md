@@ -10,11 +10,12 @@ The primary purpose is to showcase the company's cleaning services, build credib
 
 **November 21, 2025:**
 - Implemented Netlify Functions for serverless deployment with Aligo SMS integration
-  - Consultation form submissions trigger automatic SMS to owner's phone (070-7106-1658)
+  - Consultation form submissions trigger automatic SMS to owner's phone (010-9121-1744)
   - SMS contains all consultation details: name, phone, service type, and message
   - No database storage required - SMS serves as notification and record
-  - Environment variables: ALIGO_API_KEY, ALIGO_USER_ID, ALIGO_SENDER, OWNER_PHONE
+  - Environment variables: ALIGO_API_KEY, ALIGO_USER_ID, ALIGO_SENDER (01091211744), OWNER_PHONE (010-9121-1744)
   - Cost: 8.4원 per SMS (Aligo API)
+  - Note: 070 numbers cannot receive SMS, only 010/011/016/017/018/019 numbers supported
 - Added comprehensive deployment guide (NETLIFY_DEPLOYMENT.md)
   - GitHub → Netlify deployment workflow
   - Environment variable configuration
@@ -182,13 +183,13 @@ The site consists of 11 main sections:
   - Node.js version: 20
 - **SMS Integration**: Aligo API for consultation notifications
   - Endpoint: `/.netlify/functions/consultations`
-  - Sends SMS to owner's phone (070-7106-1658) with consultation details
+  - Sends SMS to owner's phone (010-9121-1744) with consultation details
   - Cost: 8.4원 per SMS
 - **Environment Variables** (required):
   - `ALIGO_API_KEY`: Aligo API key for SMS service
   - `ALIGO_USER_ID`: Aligo user ID
-  - `ALIGO_SENDER`: Sender phone number (07071061658, no hyphens)
-  - `OWNER_PHONE`: Owner's phone number for receiving SMS (070-7106-1658)
+  - `ALIGO_SENDER`: Sender phone number (01091211744, no hyphens, must be registered in Aligo)
+  - `OWNER_PHONE`: Owner's phone number for receiving SMS (010-9121-1744)
   - `NODE_ENV`: Set to `production`
 - **Data Persistence**: None - SMS-only notification system
   - Consultation submissions are validated but not stored
