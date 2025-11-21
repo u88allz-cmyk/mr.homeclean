@@ -313,7 +313,7 @@ export default function Home() {
               },
               {
                 icon: Award,
-                title: "무상 A/S 보장",
+                title: "확실한 A/S 보증",
                 description: "청소 미흡시 14일 이내 무료 A/S로 책임감있는 서비스를 제공합니다"
               },
               {
