@@ -562,9 +562,11 @@ export default function Home() {
             <p className="text-lg text-muted-foreground mb-6">
               더 많은 고객님들이 미스터홈클린의 전문성에 만족하고 계십니다
             </p>
-            <Button size="lg" onClick={() => openConsultation()} data-testid="button-reviews-consult">
-              <Phone className="w-5 h-5 mr-2" />
-              지금 바로 상담받기
+            <Button size="lg" asChild data-testid="button-reviews-consult">
+              <a href="tel:070-7106-1658">
+                <Phone className="w-5 h-5 mr-2" />
+                지금 바로 상담받기
+              </a>
             </Button>
           </div>
         </div>
