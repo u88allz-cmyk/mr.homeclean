@@ -595,13 +595,13 @@ export default function Home() {
       {/* Section 8: Additional Costs */}
       <section id="pricing" className="py-16 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-center gap-2 mb-4">
-            <AlertTriangle className="w-8 h-8 text-destructive" />
-            <h2 className="text-4xl font-bold text-center text-foreground break-keep" data-testid="text-additional-cost-title">
-              이런 경우엔 별도 비용이 생겨요
+          <div className="flex flex-col items-center justify-center mb-4">
+            <AlertTriangle className="w-10 h-10 text-destructive mb-3" />
+            <h2 className="text-3xl md:text-4xl font-bold text-center text-foreground break-keep leading-tight" data-testid="text-additional-cost-title">
+              이런 경우엔 별도<br className="md:hidden" /> 비용이 생겨요
             </h2>
           </div>
-          <p className="text-center text-muted-foreground mb-16 break-keep" data-testid="text-additional-cost-desc">
+          <p className="text-center text-muted-foreground mb-12 md:mb-16 break-keep px-4" data-testid="text-additional-cost-desc">
             아래 항목에 해당되는 경우 추가 비용이 발생할 수 있습니다
           </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
