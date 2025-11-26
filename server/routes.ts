@@ -24,7 +24,7 @@ const sendSMS = async (message: string): Promise<{ success: boolean; result?: an
       sender: ALIGO_SENDER,
       receiver: OWNER_PHONE.replace(/-/g, ""),
       msg: message,
-      testmode_yn: "Y",
+      testmode_yn: "N",
     });
 
     const response = await fetch("https://apis.aligo.in/send/", {
