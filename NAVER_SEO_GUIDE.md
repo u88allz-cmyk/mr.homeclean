@@ -1,12 +1,13 @@
 # 네이버 서치어드바이저 등록 가이드
 
-## 📋 사전 준비
+## ✅ 도메인 설정 완료
 
-도메인 구매 후 다음 파일들의 `YOUR_DOMAIN.com` 부분을 실제 도메인으로 변경해주세요:
+도메인: `https://xn--sy2bt5bo3je3p30at7t.store` (미스터홈클린.store)
 
-1. `client/public/robots.txt`
-2. `client/public/sitemap.xml`
-3. `client/index.html` (여러 곳)
+다음 파일들이 도메인에 맞게 업데이트되었습니다:
+- ✅ `client/public/robots.txt`
+- ✅ `client/public/sitemap.xml`
+- ✅ `client/index.html`
 
 ## 🔍 네이버 서치어드바이저 등록 방법
 
@@ -17,7 +18,7 @@
 ### Step 2: 사이트 등록
 1. "웹마스터 도구" 클릭
 2. "사이트 추가" 버튼 클릭
-3. 도메인 입력 (예: `https://misterhomeclean.com`)
+3. 도메인 입력: `https://xn--sy2bt5bo3je3p30at7t.store`
 
 ### Step 3: 소유권 확인 (2가지 방법 중 선택)
 
@@ -38,7 +39,7 @@
 ### Step 4: 사이트맵 제출
 1. 소유권 확인 완료 후
 2. "요청" → "사이트맵 제출" 클릭
-3. 사이트맵 URL 입력: `https://YOUR_DOMAIN.com/sitemap.xml`
+3. 사이트맵 URL 입력: `https://xn--sy2bt5bo3je3p30at7t.store/sitemap.xml`
 4. "확인" 클릭
 
 ### Step 5: RSS 제출 (선택사항)
@@ -83,29 +84,18 @@
 - 전문청소
 - 프리미엄청소
 
-## 📝 도메인 등록 후 할 일
+## ✅ 도메인 설정 완료 항목
 
-도메인 구매 후 다음 파일들을 업데이트해야 합니다:
+모든 파일이 도메인에 맞게 업데이트되었습니다:
 
-### 1. robots.txt 수정
-```
-Sitemap: https://실제도메인.com/sitemap.xml
-```
+- ✅ robots.txt: `https://xn--sy2bt5bo3je3p30at7t.store/sitemap.xml`
+- ✅ sitemap.xml: 모든 URL 업데이트 완료
+- ✅ index.html: og:url, canonical, JSON-LD 등 업데이트 완료
 
-### 2. sitemap.xml 수정
-모든 `YOUR_DOMAIN.com`을 실제 도메인으로 변경
-
-### 3. index.html 수정
-- `og:url`
-- `og:image`
-- `twitter:url`
-- `twitter:image`
-- `canonical` URL
-- JSON-LD의 `url`
-
-### 4. OG 이미지 추가
+### 추가 권장 사항: OG 이미지
 - `client/public/og-image.png` 파일 추가 (권장 크기: 1200x630px)
 - 미스터홈클린 로고 + 대표 이미지 조합 권장
+- SNS 공유 시 미리보기 이미지로 표시됨
 
 ## 🕐 검색 노출 예상 시간
 

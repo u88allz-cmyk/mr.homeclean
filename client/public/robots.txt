@@ -7,4 +7,4 @@ Allow: /
 User-agent: Googlebot
 Allow: /
 
-Sitemap: https://YOUR_DOMAIN.com/sitemap.xml
+Sitemap: https://xn--sy2bt5bo3je3p30at7t.store/sitemap.xml
