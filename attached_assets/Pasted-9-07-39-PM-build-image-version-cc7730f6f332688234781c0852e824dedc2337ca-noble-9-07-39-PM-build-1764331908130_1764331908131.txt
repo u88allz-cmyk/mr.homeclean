@@ -1,0 +1,120 @@
+9:07:39 PM: build-image version: cc7730f6f332688234781c0852e824dedc2337ca (noble)
+9:07:39 PM: buildbot version: cc7730f6f332688234781c0852e824dedc2337ca
+9:07:39 PM: Fetching cached dependencies
+9:07:39 PM: Starting to download cache of 340.7MB (Last modified: 2025-11-28 11:54:34 +0000 UTC)
+9:07:40 PM: Finished downloading cache in 712ms
+9:07:40 PM: Starting to extract cache
+9:07:45 PM: Finished extracting cache in 4.582s
+9:07:45 PM: Finished fetching cache in 5.416s
+9:07:45 PM: Starting to prepare the repo for build
+9:07:45 PM: Preparing Git Reference refs/heads/main
+9:07:47 PM: Custom publish path detected. Proceeding with the specified path: 'dist/public'
+9:07:47 PM: Starting to install dependencies
+9:07:47 PM: Started restoring cached python cache
+9:07:47 PM: Finished restoring cached python cache
+9:07:47 PM: Started restoring cached ruby cache
+9:07:48 PM: Finished restoring cached ruby cache
+9:07:48 PM: Started restoring cached go cache
+9:07:49 PM: Finished restoring cached go cache
+9:07:49 PM: Started restoring cached Node.js version
+9:07:51 PM: Finished restoring cached Node.js version
+9:07:51 PM: v20.19.6 is already installed.
+9:07:52 PM: Now using node v20.19.6 (npm v10.8.2)
+9:07:52 PM: Enabling Node.js Corepack
+9:07:52 PM: Started restoring cached build plugins
+9:07:52 PM: Finished restoring cached build plugins
+9:07:52 PM: WARNING: The environment variable 'NODE_ENV' is set to 'production'. Any 'devDependencies' in package.json will not be installed
+9:07:52 PM: Started restoring cached corepack dependencies
+9:07:52 PM: Finished restoring cached corepack dependencies
+9:07:52 PM: No npm workspaces detected
+9:07:52 PM: Started restoring cached node modules
+9:07:52 PM: Finished restoring cached node modules
+9:07:52 PM: Installing npm packages using npm version 10.8.2
+9:07:54 PM: up to date, audited 481 packages in 2s
+9:07:54 PM: 64 packages are looking for funding
+9:07:54 PM:   run `npm fund` for details
+9:07:54 PM: 9 vulnerabilities (3 low, 5 moderate, 1 high)
+9:07:54 PM: To address issues that do not require attention, run:
+9:07:54 PM:   npm audit fix
+9:07:54 PM: To address all issues (including breaking changes), run:
+9:07:54 PM:   npm audit fix --force
+9:07:54 PM: Run `npm audit` for details.
+9:07:54 PM: npm packages installed
+9:07:54 PM: Successfully installed dependencies
+9:07:54 PM: Starting build script
+9:07:55 PM: Detected 1 framework(s)
+9:07:55 PM: "vite" at version "5.4.20"
+9:07:55 PM: Section completed: initializing
+9:07:56 PM: ​
+9:07:56 PM: Netlify Build                                                 
+9:07:56 PM: ────────────────────────────────────────────────────────────────
+9:07:56 PM: ​
+9:07:56 PM: ❯ Version
+9:07:56 PM:   @netlify/build 35.5.2
+9:07:56 PM: ​
+9:07:56 PM: ❯ Flags
+9:07:56 PM:   accountId: 6916f37661ff993f78274170
+9:07:56 PM:   baseRelDir: true
+9:07:56 PM:   buildId: 69299089a3e5cd0008e4c08f
+9:07:56 PM:   deployId: 69299089a3e5cd0008e4c091
+9:07:58 PM: ​
+9:07:58 PM: ❯ Current directory
+9:07:58 PM:   /opt/build/repo
+9:07:58 PM: ​
+9:07:58 PM: ❯ Config file
+9:07:58 PM:   /opt/build/repo/netlify.toml
+9:07:58 PM: ​
+9:07:58 PM: ❯ Context
+9:07:58 PM:   production
+9:07:58 PM: ​
+9:07:58 PM: build.command from netlify.toml                               
+9:07:58 PM: ────────────────────────────────────────────────────────────────
+9:07:58 PM: ​
+9:07:58 PM: $ npm run build
+9:07:58 PM: > rest-express@1.0.0 build
+9:07:58 PM: > vite build && esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist
+9:07:58 PM: vite v5.4.20 building for production...
+9:07:58 PM: transforming...
+9:08:01 PM: A PostCSS plugin did not pass the `from` option to `postcss.parse`. This may cause imported assets to be incorrectly transformed. If you've recently added a PostCSS plugin that raised this warning, please contact the package author to fix the issue.
+✓ 1854 modules transformed.
+9:08:02 PM: rendering chunks...
+9:08:02 PM: computing gzip size...
+9:08:02 PM: ../dist/public/index.html                                               3.28 kB │ gzip:   1.39 kB
+9:08:02 PM: ../dist/public/assets/review-2-DhF4yDWA.webp                           40.15 kB
+9:08:02 PM: ../dist/public/assets/review-4-C1k0tFT1.webp                           51.99 kB
+9:08:02 PM: ../dist/public/assets/review-7-DS8AqZE-.webp                           67.49 kB
+9:08:02 PM: ../dist/public/assets/review-3-Dj8iSjhB.webp                           68.42 kB
+9:08:02 PM: ../dist/public/assets/review-9-Bkx_DfHD.webp                           69.07 kB
+9:08:02 PM: ../dist/public/assets/service-movein-B7qFqO_B.webp                     74.19 kB
+9:08:02 PM: ../dist/public/assets/review-8-BWRjHnfa.webp                           78.59 kB
+9:08:02 PM: ../dist/public/assets/review-5-D9gYtpdc.webp                           80.52 kB
+9:08:02 PM: ../dist/public/assets/review-1-rhLcqf6r.webp                           80.73 kB
+9:08:02 PM: ../dist/public/assets/review-10-C7x2eCKV.webp                          86.20 kB
+9:08:02 PM: ../dist/public/assets/review-6-BSlLbYoH.webp                           92.16 kB
+9:08:02 PM: ../dist/public/assets/service-special-BmUzXYw0.webp                   104.55 kB
+9:08:02 PM: ../dist/public/assets/service-window-CKN5xcjz.webp                    144.08 kB
+9:08:02 PM: ../dist/public/assets/service-office-COzl5_GR.webp                    170.09 kB
+9:08:02 PM: ../dist/public/assets/image_1763552405652-ZJxx3_Yd.png                173.58 kB
+9:08:02 PM: ../dist/public/assets/hero-team-b9u2wBzS.webp                         221.80 kB
+9:08:02 PM: ../dist/public/assets/team-final-ssaHEfuo.webp                        248.29 kB
+9:08:02 PM: ../dist/public/assets/미스터홈클린 로고-Photoroom_1763451941494-fCA0xefT.png  427.57 kB
+9:08:02 PM: ../dist/public/assets/index-Cusm9t13.css                               72.76 kB │ gzip:  11.93 kB
+9:08:02 PM: ../dist/public/assets/index-D8AX8rh5.js                               472.30 kB │ gzip: 146.53 kB
+9:08:02 PM: ✓ built in 3.79s
+9:08:02 PM:   dist/index.js  9.7kb
+9:08:02 PM: ⚡ Done in 3ms
+9:08:12 PM: Failed during stage 'building site': Build script returned non-zero exit code: 4 (https://ntl.fyi/exit-code-4)
+9:08:12 PM: Unhandled rejection…
+9:08:12 PM: TypeError: Cannot read properties of undefined (reading 'packageName')
+9:08:12 PM:     at title (file:///opt/buildhome/node-deps/node_modules/@netlify/build/lib/error/types.js:213:31)
+9:08:12 PM:     at getTitle (file:///opt/buildhome/node-deps/node_modules/@netlify/build/lib/error/parse/parse.js:69:12)
+9:08:12 PM:     at getFullErrorInfo (file:///opt/buildhome/node-deps/node_modules/@netlify/build/lib/error/parse/parse.js:14:20)
+9:08:12 PM:     at logBuildError (file:///opt/buildhome/node-deps/node_modules/@netlify/build/lib/log/messages/core.js:17:27)
+9:08:12 PM:     at handleBuildError (file:///opt/buildhome/node-deps/node_modules/@netlify/build/lib/error/handle.js:17:9)
+9:08:12 PM:     at async file:///opt/buildhome/node-deps/node_modules/@netlify/build/lib/core/main.js:91:34
+9:08:12 PM:     at async buildSite (file:///opt/buildhome/node-deps/node_modules/@netlify/build/lib/core/main.js:34:12)
+9:08:12 PM:     at async runCli (file:///opt/buildhome/node-deps/node_modules/@netlify/build/lib/core/bin.js:22:36)
+9:08:12 PM: /opt/buildhome/node-deps/node_modules/.bin/netlify-build exited with exit code 0 without finishing the build.
+9:08:12 PM: Build failed due to an internal system error: Build script returned non-zero exit code: 4
+9:08:12 PM: Failing build: Failed to build site
+9:08:13 PM: Finished processing build request in 33.529s
