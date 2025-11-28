@@ -1,0 +1,115 @@
+The Netlify deploy errored, with the following guidance provided:
+
+- Relevant log lines
+  - The build script being run: [line 65](#L65) and [line 66-67](#L66-L67).
+  - The concrete failure: [line 68](#L68) ("sh: 1: vite: not found").
+  - The failing command exit: [line 74](#L74) and [line 78](#L78).
+
+Diagnosis
+- Error type: Missing executable / dependency at build time (exit code 127).
+- Cause: The build script runs "vite build" but the Vite binary is not available in the build environment ([line 67](#L67) → [line 68](#L68)). That means Vite is not installed or not installed in a place Netlify will use during the build (e.g., not present in package.json / not installed because devDependencies were skipped).
+
+Solution (step-by-step)
+1. Verify Vite is declared in your repository
+   - Open your package.json in the repo: https://github.com/u88allz-cmyk/mr.homeclean/blob/main/package.json
+   - Ensure "vite" appears in either "dependencies" or "devDependencies". If it is missing, add it (see step 2).
+
+2. Add/install Vite and commit the lockfile
+   - Locally run:
+```bash
+# if you want Vite as a dev tool
+npm install -D vite
+
+# or to ensure it's installed during production installs, add as a normal dependency
+# npm install vite
+```
+   - Commit package.json and package-lock.json (or pnpm-lock.yaml/yarn.lock) and push.
+
+3. Ensure Netlify will install Vite during the build
+   - Option A (recommended if you keep Vite as devDependency): tell Netlify to install devDependencies by setting NPM_FLAGS:
+     - In Netlify UI: Site settings > Build & deploy > Environment > Add variable NPM_FLAGS = --include=dev
+     - Or in netlify.toml add:
+```toml
+[build.environment]
+  NPM_FLAGS = "--include=dev"
+```
+   - Option B: Move Vite to regular "dependencies" (npm install vite) so it is always installed during production installs.
+
+4. Test locally before pushing
+```bash
+npm ci
+npm run build
+```
+   - Fix any local errors, commit, and push. Netlify should then find vite and proceed past the "vite: not found" error.
+
+Notes
+- The immediate failure is not a Node version mismatch, so no Node docs link is required. If you later see Node-related errors, consult Netlify docs for changing Node versions: https://docs.netlify.com/configure-builds/manage-dependencies/#node-js-and-javascript
+
+The relevant error logs are:
+
+Line 5: Starting to extract cache
+Line 6: Finished extracting cache in 4.195s
+Line 7: Finished fetching cache in 5.016s
+Line 8: Starting to prepare the repo for build
+Line 9: Preparing Git Reference refs/heads/main
+Line 10: Custom publish path detected. Proceeding with the specified path: 'dist/public'
+Line 11: Starting to install dependencies
+Line 12: Started restoring cached python cache
+Line 13: Finished restoring cached python cache
+Line 14: Started restoring cached ruby cache
+Line 15: Failed during stage 'building site': Build script returned non-zero exit code: 2
+Line 16: Finished restoring cached ruby cache
+Line 17: Started restoring cached go cache
+Line 18: Finished restoring cached go cache
+Line 19: Started restoring cached Node.js version
+Line 20: Finished restoring cached Node.js version
+Line 21: v20.19.6 is already installed.
+Line 22: Now using node v20.19.6 (npm v10.8.2)
+Line 23: Enabling Node.js Corepack
+Line 24: Started restoring cached build plugins
+Line 25: Finished restoring cached build plugins
+Line 60:   production
+Line 61: [96m[1m​[22m[39m
+Line 62: [96m[1mbuild.command from netlify.toml                               [22m[39m
+Line 63: [96m[1m────────────────────────────────────────────────────────────────[22m[39m
+Line 64: ​
+Line 65: [36m$ npm run build[39m
+Line 66: > rest-express@1.0.0 build
+Line 67: > vite build && esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist
+Line 68: sh: 1: vite: not found
+Line 69: [91m[1m​[22m[39m
+Line 70: [91m[1m"build.command" failed                                        [22m[39m
+Line 71: [91m[1m────────────────────────────────────────────────────────────────[22m[39m
+Line 72: ​
+Line 73:   [31m[1mError message[22m[39m
+Line 74:   Command failed with exit code 127: npm run build
+Line 75: ​
+Line 76:   [31m[1mError location[22m[39m
+Line 77:   In build.command from netlify.toml:
+Line 78:   npm run build
+Line 79: ​
+Line 80:   [31m[1mResolved config[22m[39m
+Line 81:   build:
+Line 82:     command: npm run build
+Line 83:     commandOrigin: config
+Line 84:     environment:
+Line 85:       - ALIGO_API_KEY
+Line 86:       - ALIGO_SENDER
+Line 89:       - OWNER_PHONE
+Line 90:       - NODE_VERSION
+Line 91:     publish: /opt/build/repo/dist/public
+Line 92:     publishOrigin: config
+Line 93:   functions:
+Line 94:     "*":
+Line 95:       node_bundler: esbuild
+Line 96:   functionsDirectory: /opt/build/repo/netlify/functions
+Line 97:   redirects:
+Line 98:     - from: /api/*
+      status: 200
+      to: /.netlify/functions/:splat
+    - from: /*
+      status: 200
+      to: /index.html
+Line 99: Build failed due to a user error: Build script returned non-zero exit code: 2
+Line 100: Failing build: Failed to build site
+Line 101: Finished processing build request in 15.609s
