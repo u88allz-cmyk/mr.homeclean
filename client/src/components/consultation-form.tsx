@@ -48,7 +48,7 @@ export function ConsultationForm({ open, onOpenChange, initialServiceType = "" }
       formData.append("serviceType", data.serviceType);
       formData.append("message", data.message || "");
       
-      const response = await fetch("http://112.175.85.195/send_sms.php", {
+      const response = await fetch("http://hyungjun7191.mycafe24.com/send_sms.php", {
         method: "POST",
         body: formData,
       });
