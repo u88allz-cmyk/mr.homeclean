@@ -41,16 +41,13 @@ export function ConsultationForm({ open, onOpenChange, initialServiceType = "" }
 
   const mutation = useMutation({
     mutationFn: async (data: z.infer<typeof formSchema>) => {
-      // 카페24 중계 서버로 SMS 전송
-      const formData = new FormData();
-      formData.append("name", data.name);
-      formData.append("phone", data.phone);
-      formData.append("serviceType", data.serviceType);
-      formData.append("message", data.message || "");
-      
-      const response = await fetch("http://hyungjun7191.mycafe24.com/send_sms.php", {
+      // Netlify Functions로 SMS 전송
+      const response = await fetch("/.netlify/functions/consultations", {
         method: "POST",
-        body: formData,
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
       });
       
       if (!response.ok) {
