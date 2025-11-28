@@ -11,7 +11,6 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
-import { apiRequest } from "@/lib/queryClient";
 import { insertConsultationSchema } from "@shared/schema";
 
 interface ConsultationFormProps {
@@ -42,7 +41,23 @@ export function ConsultationForm({ open, onOpenChange, initialServiceType = "" }
 
   const mutation = useMutation({
     mutationFn: async (data: z.infer<typeof formSchema>) => {
-      return apiRequest("POST", "/api/consultations", data);
+      // 카페24 중계 서버로 SMS 전송
+      const formData = new FormData();
+      formData.append("name", data.name);
+      formData.append("phone", data.phone);
+      formData.append("serviceType", data.serviceType);
+      formData.append("message", data.message || "");
+      
+      const response = await fetch("http://112.175.85.195/send_sms.php", {
+        method: "POST",
+        body: formData,
+      });
+      
+      if (!response.ok) {
+        throw new Error("SMS 전송 실패");
+      }
+      
+      return response.json();
     },
     onSuccess: () => {
       setIsSubmitted(true);
