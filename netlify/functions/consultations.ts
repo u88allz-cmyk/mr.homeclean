@@ -1,38 +1,59 @@
 import type { Handler, HandlerEvent } from "@netlify/functions";
 import { insertConsultationSchema } from "../../shared/schema";
 import { z } from "zod";
+import crypto from "crypto";
 
-const sendSMS = async (phone: string, message: string): Promise<boolean> => {
-  const ALIGO_API_KEY = process.env.ALIGO_API_KEY;
-  const ALIGO_USER_ID = process.env.ALIGO_USER_ID;
-  const ALIGO_SENDER = process.env.ALIGO_SENDER;
+const generateSignature = (apiSecret: string, dateTime: string, salt: string): string => {
+  const data = dateTime + salt;
+  return crypto
+    .createHmac("sha256", apiSecret)
+    .update(data)
+    .digest("hex");
+};
+
+const createAuthHeader = (apiKey: string, apiSecret: string): string => {
+  const dateTime = new Date().toISOString();
+  const salt = crypto.randomBytes(16).toString("hex");
+  const signature = generateSignature(apiSecret, dateTime, salt);
+  
+  return `HMAC-SHA256 apiKey=${apiKey}, date=${dateTime}, salt=${salt}, signature=${signature}`;
+};
+
+const sendSMS = async (message: string): Promise<boolean> => {
+  const SOLAPI_API_KEY = process.env.SOLAPI_API_KEY;
+  const SOLAPI_API_SECRET = process.env.SOLAPI_API_SECRET;
+  const SOLAPI_SENDER = process.env.SOLAPI_SENDER;
   const OWNER_PHONE = process.env.OWNER_PHONE;
 
-  if (!ALIGO_API_KEY || !ALIGO_USER_ID || !ALIGO_SENDER || !OWNER_PHONE) {
-    throw new Error("Missing required environment variables: ALIGO_API_KEY, ALIGO_USER_ID, ALIGO_SENDER, or OWNER_PHONE");
+  if (!SOLAPI_API_KEY || !SOLAPI_API_SECRET || !SOLAPI_SENDER || !OWNER_PHONE) {
+    throw new Error("Missing required environment variables: SOLAPI_API_KEY, SOLAPI_API_SECRET, SOLAPI_SENDER, or OWNER_PHONE");
   }
 
   try {
-    const formData = new URLSearchParams({
-      key: ALIGO_API_KEY,
-      userid: ALIGO_USER_ID,
-      sender: ALIGO_SENDER,
-      receiver: OWNER_PHONE.replace(/-/g, ""),
-      msg: message,
-      testmode_yn: process.env.NODE_ENV === "production" ? "N" : "Y",
-    });
+    const authHeader = createAuthHeader(SOLAPI_API_KEY, SOLAPI_API_SECRET);
+    
+    const messageData = {
+      messages: [
+        {
+          to: OWNER_PHONE.replace(/-/g, ""),
+          from: SOLAPI_SENDER.replace(/-/g, ""),
+          text: message,
+        },
+      ],
+    };
 
-    const response = await fetch("https://apis.aligo.in/send/", {
+    const response = await fetch("https://api.solapi.com/messages/v4/send", {
       method: "POST",
       headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
+        "Authorization": authHeader,
+        "Content-Type": "application/json",
       },
-      body: formData.toString(),
+      body: JSON.stringify(messageData),
     });
 
     const result = await response.json();
     
-    if (result.result_code === "1") {
+    if (response.ok && result.groupId) {
       console.log("SMS sent successfully:", result);
       return true;
     } else {
@@ -82,7 +103,7 @@ ${validatedData.message ? `메시지: ${validatedData.message}` : ""}`;
 
     let smsSent = false;
     try {
-      smsSent = await sendSMS(validatedData.phone, smsMessage);
+      smsSent = await sendSMS(smsMessage);
     } catch (smsError) {
       console.error("SMS sending failed:", smsError);
     }
