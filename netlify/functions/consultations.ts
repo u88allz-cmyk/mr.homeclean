@@ -94,7 +94,8 @@ export const handler: Handler = async (event: HandlerEvent) => {
     
     const validatedData = insertConsultationSchema.parse(requestData);
 
-    const smsMessage = `이름: ${validatedData.name}
+    const smsMessage = `[미스터홈클린 상담 신청]
+이름: ${validatedData.name}
 연락처: ${validatedData.phone}
 서비스: ${validatedData.serviceType}
 ${validatedData.message ? `문의내용: ${validatedData.message}` : ""}`;
