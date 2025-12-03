@@ -97,7 +97,7 @@ export const handler: Handler = async (event: HandlerEvent) => {
 이름: ${validatedData.name}
 연락처: ${validatedData.phone}
 서비스: ${validatedData.serviceType}
-${validatedData.message ? `문의내용: ${validatedData.message}` : ""}`;
+${validatedData.message ? `메시지: ${validatedData.message}` : ""}`;
 
     let smsSent = false;
     try {
