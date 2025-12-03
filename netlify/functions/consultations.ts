@@ -37,7 +37,6 @@ const sendSMS = async (message: string): Promise<boolean> => {
         to: OWNER_PHONE.replace(/-/g, ""),
         from: SOLAPI_SENDER.replace(/-/g, ""),
         text: message,
-        subject: "",
       },
     };
 
