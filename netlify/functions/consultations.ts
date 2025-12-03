@@ -33,13 +33,11 @@ const sendSMS = async (message: string): Promise<boolean> => {
     const authHeader = createAuthHeader(SOLAPI_API_KEY, SOLAPI_API_SECRET);
     
     const messageData = {
-      messages: [
-        {
-          to: OWNER_PHONE.replace(/-/g, ""),
-          from: SOLAPI_SENDER.replace(/-/g, ""),
-          text: message,
-        },
-      ],
+      message: {
+        to: OWNER_PHONE.replace(/-/g, ""),
+        from: SOLAPI_SENDER.replace(/-/g, ""),
+        text: message,
+      },
     };
 
     const response = await fetch("https://api.solapi.com/messages/v4/send", {
