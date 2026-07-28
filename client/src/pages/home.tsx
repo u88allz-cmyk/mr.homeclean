@@ -9,13 +9,11 @@ import { ConsultationForm } from "@/components/consultation-form";
 import heroImage from "@assets/hero-team.webp";
 import teamFinal from "@assets/team-final.webp";
 import moveInImage from "@assets/service-movein.webp";
-import officeImage from "@assets/service-office.webp";
+import officeImage from "@assets/service-office-opt.webp";
 import specialImage from "@assets/service-special.webp";
-import windowImage from "@assets/service-window.webp";
-import logoImage from "@assets/미스터홈클린 로고-Photoroom_1763451941494.png";
-import newLogoImage from "@assets/image_1763552405652.png";
-import logoCharacter from "@assets/logo-character.png";
-import characterMain from "@assets/character-main.webp";
+import windowImage from "@assets/service-window-opt.webp";
+import logoImage from "@assets/logo-photoroom.webp";
+import newLogoImage from "@assets/brand-logo.webp";
 import review1 from "@assets/review-1.webp";
 import review2 from "@assets/review-2.webp";
 import review3 from "@assets/review-3.webp";
@@ -99,7 +97,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center gap-2">
-              <img src={logoImage} alt="미스터홈클린 로고" className="h-14 w-auto" />
+              <img src={logoImage} alt="미스터홈클린 로고" className="h-14 w-auto" width="853" height="1280" />
               <span className="text-xl font-bold text-primary">미스터홈클린</span>
             </div>
             <div className="hidden md:flex items-center gap-8">
@@ -184,6 +182,9 @@ export default function Home() {
             src={heroImage} 
             alt="미스터홈클린 전문 청소 팀" 
             className="w-full h-full object-cover"
+            width="1920"
+            height="1080"
+            fetchpriority="high"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70"></div>
         </div>
@@ -268,6 +269,9 @@ export default function Home() {
                 src={newLogoImage} 
                 alt="미스터홈클린 로고" 
                 className="w-full max-w-md"
+                width="1095"
+                height="658"
+                loading="lazy"
               />
             </div>
             
@@ -412,6 +416,9 @@ export default function Home() {
                     src={service.image} 
                     alt={service.title} 
                     className="w-full h-full object-cover"
+                    width="1200"
+                    height="900"
+                    loading="lazy"
                     data-testid={`img-service-${index}`}
                   />
                 </div>
@@ -523,6 +530,9 @@ export default function Home() {
                   src={reviews[currentReviewIndex].img} 
                   alt={reviews[currentReviewIndex].alt}
                   className="w-full h-full object-contain bg-white"
+                  width="800"
+                  height="800"
+                  loading="lazy"
                 />
               </div>
 
@@ -585,6 +595,9 @@ export default function Home() {
                 src={selectedReviewImage} 
                 alt="고객 리뷰 확대"
                 className="w-full h-full object-contain bg-white"
+                width="800"
+                height="800"
+                loading="lazy"
                 data-testid="img-review-modal"
               />
             )}
@@ -645,6 +658,9 @@ export default function Home() {
               src={teamFinal} 
               alt="미스터홈클린 전문 팀" 
               className="max-w-3xl w-full h-auto rounded-lg"
+              width="1600"
+              height="1011"
+              loading="lazy"
               data-testid="img-hero-team"
             />
           </div>
@@ -680,7 +696,7 @@ export default function Home() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
             <div>
               <div className="flex items-center gap-2 mb-4">
-                <img src={logoImage} alt="미스터홈클린 로고" className="h-10 w-auto" />
+                <img src={logoImage} alt="미스터홈클린 로고" className="h-10 w-auto" width="853" height="1280" loading="lazy" />
                 <span className="text-lg font-bold text-primary break-keep" data-testid="text-footer-brand">미스터홈클린</span>
               </div>
               <p className="text-sm text-muted-foreground break-keep" data-testid="text-footer-tagline">
