@@ -693,7 +693,7 @@ export default function Home() {
       {/* Section 10: Footer */}
       <footer className="bg-card py-16 border-t" data-testid="footer">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12 mb-12">
             <div>
               <div className="flex items-center gap-2 mb-4">
                 <img src={logoImage} alt="미스터홈클린 로고" className="h-10 w-auto" width="853" height="1280" loading="lazy" />
@@ -717,16 +717,7 @@ export default function Home() {
             <div>
               <h4 className="font-bold text-foreground mb-4 break-keep" data-testid="text-footer-support-heading">고객센터</h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li className="break-keep" data-testid="text-footer-phone">전화: 070-7106-1658</li>
-                <li className="break-keep" data-testid="text-footer-hours">운영시간: 24시간 연중무휴</li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-bold text-foreground mb-4 break-keep" data-testid="text-footer-company-heading">회사정보</h4>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li className="break-keep" data-testid="text-footer-company-name">상호명: 미스터홈클린</li>
-                <li className="break-keep" data-testid="text-footer-business-number">사업자번호: 121-36-10314</li>
-                <li className="break-keep" data-testid="text-footer-address">주소: 경기도 양주시 부흥로 1936, 4층</li>
+                <li className="break-keep" data-testid="text-footer-email">이메일: mmai90fk@naver.com</li>
               </ul>
             </div>
           </div>
