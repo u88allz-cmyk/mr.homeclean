@@ -717,6 +717,8 @@ export default function Home() {
             <div>
               <h4 className="font-bold text-foreground mb-4 break-keep" data-testid="text-footer-support-heading">고객센터</h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
+                <li className="break-keep" data-testid="text-footer-phone">전화: 070-7106-1658</li>
+                <li className="break-keep" data-testid="text-footer-hours">운영시간: 24시간 연중무휴</li>
                 <li className="break-keep" data-testid="text-footer-email">이메일: mmai90fk@naver.com</li>
               </ul>
             </div>
