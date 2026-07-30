@@ -190,7 +190,7 @@ export default function Home() {
         </div>
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight break-keep" data-testid="text-hero-title">
-            전문적인 청소,<br />
+            미스터홈클린 입주·이사청소,<br />
             이제는 선택이 아닌<br />
             <span className="text-primary">필수</span>입니다
           </h1>
